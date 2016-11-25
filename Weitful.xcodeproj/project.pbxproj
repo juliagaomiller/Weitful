@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19A3F1051DE81D7500BACDDC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3F1041DE81D7500BACDDC /* Extensions.swift */; };
+		19A3F11D1DE82C2900BACDDC /* DayLog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3F11B1DE82C2900BACDDC /* DayLog+CoreDataClass.swift */; };
+		19A3F11E1DE82C2900BACDDC /* DayLog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3F11C1DE82C2900BACDDC /* DayLog+CoreDataProperties.swift */; };
 		19E8D1C91DE6A85A00C2258A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1C81DE6A85A00C2258A /* AppDelegate.swift */; };
-		19E8D1CB1DE6A85A00C2258A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1CA1DE6A85A00C2258A /* ViewController.swift */; };
 		19E8D1CE1DE6A85A00C2258A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E8D1CC1DE6A85A00C2258A /* Main.storyboard */; };
 		19E8D1D11DE6A85A00C2258A /* Weitful.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1CF1DE6A85A00C2258A /* Weitful.xcdatamodeld */; };
 		19E8D1D31DE6A85A00C2258A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19E8D1D21DE6A85A00C2258A /* Assets.xcassets */; };
 		19E8D1D61DE6A85A00C2258A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E8D1D41DE6A85A00C2258A /* LaunchScreen.storyboard */; };
+		19E8D1DE1DE6B4DB00C2258A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1DD1DE6B4DB00C2258A /* MainVC.swift */; };
+		19E8D1E01DE6B4E800C2258A /* LogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1DF1DE6B4E800C2258A /* LogVC.swift */; };
+		19E8D1E21DE6B4F400C2258A /* ReflectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1E11DE6B4F400C2258A /* ReflectVC.swift */; };
+		19E8D1E41DE6B54B00C2258A /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1E31DE6B54B00C2258A /* LogCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19A3F1041DE81D7500BACDDC /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		19A3F11B1DE82C2900BACDDC /* DayLog+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DayLog+CoreDataClass.swift"; path = "../DayLog+CoreDataClass.swift"; sourceTree = "<group>"; };
+		19A3F11C1DE82C2900BACDDC /* DayLog+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DayLog+CoreDataProperties.swift"; path = "../DayLog+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		19E8D1C51DE6A85A00C2258A /* Weitful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weitful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E8D1C81DE6A85A00C2258A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		19E8D1CA1DE6A85A00C2258A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		19E8D1CD1DE6A85A00C2258A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19E8D1D01DE6A85A00C2258A /* Weitful.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weitful.xcdatamodel; sourceTree = "<group>"; };
 		19E8D1D21DE6A85A00C2258A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19E8D1D51DE6A85A00C2258A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19E8D1D71DE6A85A00C2258A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19E8D1DD1DE6B4DB00C2258A /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		19E8D1DF1DE6B4E800C2258A /* LogVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogVC.swift; sourceTree = "<group>"; };
+		19E8D1E11DE6B4F400C2258A /* ReflectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectVC.swift; sourceTree = "<group>"; };
+		19E8D1E31DE6B54B00C2258A /* LogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +49,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19A3F0F71DE777F200BACDDC /* Private */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Private;
+			sourceTree = "<group>";
+		};
 		19E8D1BC1DE6A85A00C2258A = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +75,54 @@
 		19E8D1C71DE6A85A00C2258A /* Weitful */ = {
 			isa = PBXGroup;
 			children = (
-				19E8D1C81DE6A85A00C2258A /* AppDelegate.swift */,
-				19E8D1CA1DE6A85A00C2258A /* ViewController.swift */,
+				19E8D1CF1DE6A85A00C2258A /* Weitful.xcdatamodeld */,
+				19E8D1EC1DE7618000C2258A /* Other */,
+				19E8D1E91DE7614D00C2258A /* Model */,
+				19E8D1EA1DE7616E00C2258A /* View */,
+				19E8D1EB1DE7617500C2258A /* Controller */,
+			);
+			path = Weitful;
+			sourceTree = "<group>";
+		};
+		19E8D1E91DE7614D00C2258A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				19A3F11B1DE82C2900BACDDC /* DayLog+CoreDataClass.swift */,
+				19A3F11C1DE82C2900BACDDC /* DayLog+CoreDataProperties.swift */,
+				19A3F1041DE81D7500BACDDC /* Extensions.swift */,
+				19A3F0F71DE777F200BACDDC /* Private */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		19E8D1EA1DE7616E00C2258A /* View */ = {
+			isa = PBXGroup;
+			children = (
 				19E8D1CC1DE6A85A00C2258A /* Main.storyboard */,
+				19E8D1E31DE6B54B00C2258A /* LogCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		19E8D1EB1DE7617500C2258A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				19E8D1DF1DE6B4E800C2258A /* LogVC.swift */,
+				19E8D1DD1DE6B4DB00C2258A /* MainVC.swift */,
+				19E8D1E11DE6B4F400C2258A /* ReflectVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		19E8D1EC1DE7618000C2258A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				19E8D1C81DE6A85A00C2258A /* AppDelegate.swift */,
 				19E8D1D21DE6A85A00C2258A /* Assets.xcassets */,
 				19E8D1D41DE6A85A00C2258A /* LaunchScreen.storyboard */,
 				19E8D1D71DE6A85A00C2258A /* Info.plist */,
-				19E8D1CF1DE6A85A00C2258A /* Weitful.xcdatamodeld */,
 			);
-			path = Weitful;
+			name = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +157,8 @@
 				TargetAttributes = {
 					19E8D1C41DE6A85A00C2258A = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = NSX3E7ME62;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -140,8 +200,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				19E8D1D11DE6A85A00C2258A /* Weitful.xcdatamodeld in Sources */,
-				19E8D1CB1DE6A85A00C2258A /* ViewController.swift in Sources */,
+				19A3F11D1DE82C2900BACDDC /* DayLog+CoreDataClass.swift in Sources */,
+				19A3F1051DE81D7500BACDDC /* Extensions.swift in Sources */,
+				19E8D1E01DE6B4E800C2258A /* LogVC.swift in Sources */,
+				19E8D1E41DE6B54B00C2258A /* LogCell.swift in Sources */,
+				19E8D1E21DE6B4F400C2258A /* ReflectVC.swift in Sources */,
+				19E8D1DE1DE6B4DB00C2258A /* MainVC.swift in Sources */,
 				19E8D1C91DE6A85A00C2258A /* AppDelegate.swift in Sources */,
+				19A3F11E1DE82C2900BACDDC /* DayLog+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,10 +328,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = NSX3E7ME62;
 				INFOPLIST_FILE = Weitful/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JuliaGaoMiller.Weitful;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -274,6 +343,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = NSX3E7ME62;
 				INFOPLIST_FILE = Weitful/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JuliaGaoMiller.Weitful;
@@ -301,6 +372,7 @@
 				19E8D1DC1DE6A85A00C2258A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
