@@ -2,7 +2,7 @@
 //  DayLog+CoreDataProperties.swift
 //  Weitful
 //
-//  Created by Julia Miller on 11/25/16.
+//  Created by Julia Miller on 11/30/16.
 //  Copyright © 2016 Julia Miller. All rights reserved.
 //
 
@@ -17,8 +17,9 @@ extension DayLog {
     }
 
     @NSManaged public var date: NSDate?
-    @NSManaged public var eating: String?
-    @NSManaged public var exercise: String?
-    @NSManaged public var weight: String?
+    @NSManaged public var int32eating: Int32
+    @NSManaged public var int32exercise: Int32
+    @NSManaged public var weight: Double
+    @NSManaged public var commentary: String?
 
 }

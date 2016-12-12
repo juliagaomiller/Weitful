@@ -16,7 +16,6 @@ class LogCell: UITableViewCell {
     @IBOutlet weak var exerciseLbl: UILabel!
     @IBOutlet weak var eatingLbl: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -42,14 +41,13 @@ class LogCell: UITableViewCell {
     
     func configureCell(log: DayLog, previous: DayLog?){
         dateLbl.text = log.MMdd
-        weightLbl.text = log.weight
-        exerciseLbl.text = log.exercise
-        eatingLbl.text = log.eating
-        guard let p = previous else {
-            progressLbl.text = ""
-            return
-        }
-        progressLbl.text = MainVC.calculateProgress(after: log, before: p)
+        weightLbl.text = log.weightString
+        exerciseLbl.text = log.exerciseStringWithPlusSign
+        eatingLbl.text = log.eatingStringWithPlusSign
+        progressLbl.text = ""
+        if let p = previous {
+            progressLbl.text = H.calculateProgress(now: log.weight, before: p.weight)
+        } else { progressLbl.text = "" }
     }
 
 }

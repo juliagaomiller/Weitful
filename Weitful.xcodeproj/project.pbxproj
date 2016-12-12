@@ -7,9 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19A3F1051DE81D7500BACDDC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3F1041DE81D7500BACDDC /* Extensions.swift */; };
-		19A3F11D1DE82C2900BACDDC /* DayLog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3F11B1DE82C2900BACDDC /* DayLog+CoreDataClass.swift */; };
-		19A3F11E1DE82C2900BACDDC /* DayLog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3F11C1DE82C2900BACDDC /* DayLog+CoreDataProperties.swift */; };
+		1906AFBD1DFA145E001356C3 /* InstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1906AFBC1DFA145E001356C3 /* InstructionCell.swift */; };
+		1906AFBF1DFA1755001356C3 /* InstructionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1906AFBE1DFA1755001356C3 /* InstructionTransition.swift */; };
+		192CF3F41DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3F21DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift */; };
+		192CF3F51DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3F31DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift */; };
+		192CF3F71DEF4CA900D5E2D5 /* LogMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3F61DEF4CA900D5E2D5 /* LogMethods.swift */; };
+		192CF3F91DEF4CB200D5E2D5 /* MainMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3F81DEF4CB200D5E2D5 /* MainMethods.swift */; };
+		192CF3FB1DEF972900D5E2D5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3FA1DEF972900D5E2D5 /* Helper.swift */; };
+		196E18161DFF2B7C005C17BF /* Observation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E18141DFF2B7C005C17BF /* Observation+CoreDataClass.swift */; };
+		196E18171DFF2B7C005C17BF /* Observation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E18151DFF2B7C005C17BF /* Observation+CoreDataProperties.swift */; };
+		19A3F1051DE81D7500BACDDC /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3F1041DE81D7500BACDDC /* NSDateExtension.swift */; };
+		19D66F981DF9ED8D000EC885 /* InstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F971DF9ED8D000EC885 /* InstructionVC.swift */; };
+		19D66F9A1DF9ED96000EC885 /* InstructionMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F991DF9ED96000EC885 /* InstructionMethods.swift */; };
+		19D66F9C1DF9EDA4000EC885 /* InstructionDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F9B1DF9EDA4000EC885 /* InstructionDefaults.swift */; };
+		19D66FA11DF9F46C000EC885 /* Eating+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F9D1DF9F46C000EC885 /* Eating+CoreDataClass.swift */; };
+		19D66FA21DF9F46C000EC885 /* Eating+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F9E1DF9F46C000EC885 /* Eating+CoreDataProperties.swift */; };
+		19D66FA31DF9F46C000EC885 /* Exercising+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F9F1DF9F46C000EC885 /* Exercising+CoreDataClass.swift */; };
+		19D66FA41DF9F46C000EC885 /* Exercising+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66FA01DF9F46C000EC885 /* Exercising+CoreDataProperties.swift */; };
+		19DFB0FB1DFE1ED300CC2925 /* ObservationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DFB0FA1DFE1ED300CC2925 /* ObservationVC.swift */; };
+		19DFB0FD1DFE1EE400CC2925 /* NewObservationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DFB0FC1DFE1EE400CC2925 /* NewObservationVC.swift */; };
+		19DFB0FF1DFE1EF400CC2925 /* ObservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DFB0FE1DFE1EF400CC2925 /* ObservationCell.swift */; };
+		19DFB1091DFF010E00CC2925 /* ObservationMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DFB1081DFF010E00CC2925 /* ObservationMethods.swift */; };
 		19E8D1C91DE6A85A00C2258A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1C81DE6A85A00C2258A /* AppDelegate.swift */; };
 		19E8D1CE1DE6A85A00C2258A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E8D1CC1DE6A85A00C2258A /* Main.storyboard */; };
 		19E8D1D11DE6A85A00C2258A /* Weitful.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1CF1DE6A85A00C2258A /* Weitful.xcdatamodeld */; };
@@ -17,14 +35,31 @@
 		19E8D1D61DE6A85A00C2258A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E8D1D41DE6A85A00C2258A /* LaunchScreen.storyboard */; };
 		19E8D1DE1DE6B4DB00C2258A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1DD1DE6B4DB00C2258A /* MainVC.swift */; };
 		19E8D1E01DE6B4E800C2258A /* LogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1DF1DE6B4E800C2258A /* LogVC.swift */; };
-		19E8D1E21DE6B4F400C2258A /* ReflectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1E11DE6B4F400C2258A /* ReflectVC.swift */; };
 		19E8D1E41DE6B54B00C2258A /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1E31DE6B54B00C2258A /* LogCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		19A3F1041DE81D7500BACDDC /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		19A3F11B1DE82C2900BACDDC /* DayLog+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DayLog+CoreDataClass.swift"; path = "../DayLog+CoreDataClass.swift"; sourceTree = "<group>"; };
-		19A3F11C1DE82C2900BACDDC /* DayLog+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DayLog+CoreDataProperties.swift"; path = "../DayLog+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1906AFBC1DFA145E001356C3 /* InstructionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionCell.swift; sourceTree = "<group>"; };
+		1906AFBE1DFA1755001356C3 /* InstructionTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionTransition.swift; sourceTree = "<group>"; };
+		192CF3F21DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DayLog+CoreDataClass.swift"; path = "../DayLog+CoreDataClass.swift"; sourceTree = "<group>"; };
+		192CF3F31DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DayLog+CoreDataProperties.swift"; path = "../DayLog+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		192CF3F61DEF4CA900D5E2D5 /* LogMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMethods.swift; sourceTree = "<group>"; };
+		192CF3F81DEF4CB200D5E2D5 /* MainMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMethods.swift; sourceTree = "<group>"; };
+		192CF3FA1DEF972900D5E2D5 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		196E18141DFF2B7C005C17BF /* Observation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Observation+CoreDataClass.swift"; path = "../Observation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		196E18151DFF2B7C005C17BF /* Observation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Observation+CoreDataProperties.swift"; path = "../Observation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		19A3F1041DE81D7500BACDDC /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		19D66F971DF9ED8D000EC885 /* InstructionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionVC.swift; sourceTree = "<group>"; };
+		19D66F991DF9ED96000EC885 /* InstructionMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionMethods.swift; sourceTree = "<group>"; };
+		19D66F9B1DF9EDA4000EC885 /* InstructionDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionDefaults.swift; sourceTree = "<group>"; };
+		19D66F9D1DF9F46C000EC885 /* Eating+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Eating+CoreDataClass.swift"; path = "../Eating+CoreDataClass.swift"; sourceTree = "<group>"; };
+		19D66F9E1DF9F46C000EC885 /* Eating+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Eating+CoreDataProperties.swift"; path = "../Eating+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		19D66F9F1DF9F46C000EC885 /* Exercising+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Exercising+CoreDataClass.swift"; path = "../Exercising+CoreDataClass.swift"; sourceTree = "<group>"; };
+		19D66FA01DF9F46C000EC885 /* Exercising+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Exercising+CoreDataProperties.swift"; path = "../Exercising+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		19DFB0FA1DFE1ED300CC2925 /* ObservationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationVC.swift; sourceTree = "<group>"; };
+		19DFB0FC1DFE1EE400CC2925 /* NewObservationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewObservationVC.swift; sourceTree = "<group>"; };
+		19DFB0FE1DFE1EF400CC2925 /* ObservationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationCell.swift; sourceTree = "<group>"; };
+		19DFB1081DFF010E00CC2925 /* ObservationMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationMethods.swift; sourceTree = "<group>"; };
 		19E8D1C51DE6A85A00C2258A /* Weitful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weitful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E8D1C81DE6A85A00C2258A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19E8D1CD1DE6A85A00C2258A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,7 +69,6 @@
 		19E8D1D71DE6A85A00C2258A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19E8D1DD1DE6B4DB00C2258A /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		19E8D1DF1DE6B4E800C2258A /* LogVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogVC.swift; sourceTree = "<group>"; };
-		19E8D1E11DE6B4F400C2258A /* ReflectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectVC.swift; sourceTree = "<group>"; };
 		19E8D1E31DE6B54B00C2258A /* LogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,9 +83,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		19A3F0F71DE777F200BACDDC /* Private */ = {
+		19D66FA51DF9F480000EC885 /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				196E18151DFF2B7C005C17BF /* Observation+CoreDataProperties.swift */,
+				192CF3F31DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift */,
+				19D66F9E1DF9F46C000EC885 /* Eating+CoreDataProperties.swift */,
+				19D66FA01DF9F46C000EC885 /* Exercising+CoreDataProperties.swift */,
 			);
 			name = Private;
 			sourceTree = "<group>";
@@ -87,10 +125,13 @@
 		19E8D1E91DE7614D00C2258A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				19A3F11B1DE82C2900BACDDC /* DayLog+CoreDataClass.swift */,
-				19A3F11C1DE82C2900BACDDC /* DayLog+CoreDataProperties.swift */,
-				19A3F1041DE81D7500BACDDC /* Extensions.swift */,
-				19A3F0F71DE777F200BACDDC /* Private */,
+				192CF3FA1DEF972900D5E2D5 /* Helper.swift */,
+				196E18141DFF2B7C005C17BF /* Observation+CoreDataClass.swift */,
+				192CF3F21DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift */,
+				19D66F9D1DF9F46C000EC885 /* Eating+CoreDataClass.swift */,
+				19D66F9F1DF9F46C000EC885 /* Exercising+CoreDataClass.swift */,
+				19A3F1041DE81D7500BACDDC /* NSDateExtension.swift */,
+				19D66FA51DF9F480000EC885 /* Private */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -100,6 +141,8 @@
 			children = (
 				19E8D1CC1DE6A85A00C2258A /* Main.storyboard */,
 				19E8D1E31DE6B54B00C2258A /* LogCell.swift */,
+				1906AFBC1DFA145E001356C3 /* InstructionCell.swift */,
+				19DFB0FE1DFE1EF400CC2925 /* ObservationCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -107,9 +150,17 @@
 		19E8D1EB1DE7617500C2258A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				19E8D1DF1DE6B4E800C2258A /* LogVC.swift */,
+				19DFB0FA1DFE1ED300CC2925 /* ObservationVC.swift */,
+				19DFB1081DFF010E00CC2925 /* ObservationMethods.swift */,
+				19DFB0FC1DFE1EE400CC2925 /* NewObservationVC.swift */,
+				1906AFBE1DFA1755001356C3 /* InstructionTransition.swift */,
 				19E8D1DD1DE6B4DB00C2258A /* MainVC.swift */,
-				19E8D1E11DE6B4F400C2258A /* ReflectVC.swift */,
+				192CF3F81DEF4CB200D5E2D5 /* MainMethods.swift */,
+				19E8D1DF1DE6B4E800C2258A /* LogVC.swift */,
+				192CF3F61DEF4CA900D5E2D5 /* LogMethods.swift */,
+				19D66F971DF9ED8D000EC885 /* InstructionVC.swift */,
+				19D66F991DF9ED96000EC885 /* InstructionMethods.swift */,
+				19D66F9B1DF9EDA4000EC885 /* InstructionDefaults.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -199,15 +250,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19D66FA31DF9F46C000EC885 /* Exercising+CoreDataClass.swift in Sources */,
+				19DFB1091DFF010E00CC2925 /* ObservationMethods.swift in Sources */,
+				192CF3FB1DEF972900D5E2D5 /* Helper.swift in Sources */,
+				19D66FA11DF9F46C000EC885 /* Eating+CoreDataClass.swift in Sources */,
+				1906AFBF1DFA1755001356C3 /* InstructionTransition.swift in Sources */,
 				19E8D1D11DE6A85A00C2258A /* Weitful.xcdatamodeld in Sources */,
-				19A3F11D1DE82C2900BACDDC /* DayLog+CoreDataClass.swift in Sources */,
-				19A3F1051DE81D7500BACDDC /* Extensions.swift in Sources */,
+				19D66F9C1DF9EDA4000EC885 /* InstructionDefaults.swift in Sources */,
+				19A3F1051DE81D7500BACDDC /* NSDateExtension.swift in Sources */,
+				19D66FA41DF9F46C000EC885 /* Exercising+CoreDataProperties.swift in Sources */,
+				19DFB0FD1DFE1EE400CC2925 /* NewObservationVC.swift in Sources */,
+				196E18171DFF2B7C005C17BF /* Observation+CoreDataProperties.swift in Sources */,
 				19E8D1E01DE6B4E800C2258A /* LogVC.swift in Sources */,
 				19E8D1E41DE6B54B00C2258A /* LogCell.swift in Sources */,
-				19E8D1E21DE6B4F400C2258A /* ReflectVC.swift in Sources */,
+				192CF3F41DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift in Sources */,
+				19DFB0FB1DFE1ED300CC2925 /* ObservationVC.swift in Sources */,
+				196E18161DFF2B7C005C17BF /* Observation+CoreDataClass.swift in Sources */,
+				19DFB0FF1DFE1EF400CC2925 /* ObservationCell.swift in Sources */,
+				192CF3F51DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift in Sources */,
 				19E8D1DE1DE6B4DB00C2258A /* MainVC.swift in Sources */,
+				19D66F9A1DF9ED96000EC885 /* InstructionMethods.swift in Sources */,
+				192CF3F91DEF4CB200D5E2D5 /* MainMethods.swift in Sources */,
+				19D66F981DF9ED8D000EC885 /* InstructionVC.swift in Sources */,
+				19D66FA21DF9F46C000EC885 /* Eating+CoreDataProperties.swift in Sources */,
 				19E8D1C91DE6A85A00C2258A /* AppDelegate.swift in Sources */,
-				19A3F11E1DE82C2900BACDDC /* DayLog+CoreDataProperties.swift in Sources */,
+				1906AFBD1DFA145E001356C3 /* InstructionCell.swift in Sources */,
+				192CF3F71DEF4CA900D5E2D5 /* LogMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

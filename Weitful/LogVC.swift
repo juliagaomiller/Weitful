@@ -8,13 +8,19 @@
 
 import UIKit
 
-class LogVC: UIViewController {
+
+class LogVC: UIViewController, UITextViewDelegate {
     
-    @IBOutlet weak var displayLbl: UILabel!
+    @IBOutlet weak var weightLbl: UILabel!
+    @IBOutlet weak var exerciseLbl: UILabel!
+    @IBOutlet weak var eatingLbl: UILabel!
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var commentTV: UITextView!
+    @IBOutlet weak var commentsStack: UIStackView!
     
     @IBOutlet var keypad: Array<UIButton>?
     
-    var dayLog: DayLog!
+    var log: DayLog!
     
     var weightString = ""
     
@@ -23,32 +29,65 @@ class LogVC: UIViewController {
         setUp()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if weightString != "" {
-          dayLog.weight = weightString
-            delegate.saveContext()
+    @IBAction func adjustExercise(sender: UIButton!){
+        var x: Int!
+        if sender.accessibilityIdentifier == "-" {
+            if log.exercise == 0 {x = 0}
+            else {x = -1}
         }
+        else {
+            if log.exercise == 3 {x = 0}
+            else {x = 1}
+        }
+        log.exercise += x
+        delegate.saveContext()
+        updateView()
+    }
+    
+    @IBAction func adjustEating(sender: UIButton!){
+        var x: Int!
+        if sender.accessibilityIdentifier == "-" {
+            if log.eating == -3 {x = 0}
+            else {x = -1}
+        }
+        else {
+            if log.eating == 3 {x = 0}
+            else {x = 1}
+        }
+        log.eating += x
+        delegate.saveContext()
+        updateView()
+    }
+    
+    @IBAction func clear(){
+        commentTV.text = ""
+    }
+    
+    @IBAction func done(){
+        log.commentary = commentTV.text
+        delegate.saveContext()
+        commentTV.resignFirstResponder()
+        commentsStack.isHidden = true
     }
     
     func setUp(){
-        for b in keypad! {
-            b.addTarget(self, action: #selector(updateLabel(sender:)), for: .touchUpInside)
-        }
+        commentTV.delegate = self
+        addSwipeToView()
+        assignActionsToKeypad()
+        updateView()
     }
     
-    func updateLabel(sender: UIButton){
-        guard let info = sender.title(for: .normal) else {
-            fatalError()
-        }
-        if info == "Clear" {
-            weightString = ""
-            displayLbl.text = "- - lbs"
-        } else {
-            weightString += info
-            displayLbl.text = weightString + " lbs"
-            print("weightString is now \(weightString)")
-        }
-        
-        
+    func updateView(){
+        commentTV.text = log.commentary
+        commentsStack.isHidden = true
+        dateLbl.text = log.dateString
+        exerciseLbl.text = log.exerciseString
+        eatingLbl.text = log.eatingString
+        weightLbl.text = log.weightString
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        commentsStack.isHidden = false
+    }
+    
 }

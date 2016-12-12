@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Xcode 7.3" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DayLog" representedClassName="DayLog" syncable="YES">
+        <attribute name="commentary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="eating" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="exercise" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weight" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="int32eating" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="int32exercise" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Eating" representedClassName=".Eating" syncable="YES">
+        <attribute name="defaultText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="int32rank" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="userText" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Exercising" representedClassName=".Exercising" syncable="YES">
+        <attribute name="defaultText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="int32rank" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="userText" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Observation" representedClassName=".Observation" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="int32rank" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isPositive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="privateType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DayLog" positionX="-54" positionY="-9" width="128" height="105"/>
+        <element name="DayLog" positionX="-54" positionY="-9" width="128" height="120"/>
+        <element name="Eating" positionX="-54" positionY="27" width="128" height="90"/>
+        <element name="Exercising" positionX="-45" positionY="36" width="128" height="90"/>
+        <element name="Observation" positionX="-36" positionY="45" width="128" height="120"/>
     </elements>
 </model>
