@@ -31,8 +31,13 @@ class LogVC: UIViewController, UITextViewDelegate {
     
     @IBAction func adjustExercise(sender: UIButton!){
         var x: Int!
+        if exerciseLbl.text == "~" {
+            log.exercise = 0
+            exerciseLbl.text = "0"
+            return
+        }
         if sender.accessibilityIdentifier == "-" {
-            if log.exercise == 0 {x = 0}
+            if log.exercise <= 0 {x = 0}
             else {x = -1}
         }
         else {
@@ -46,6 +51,11 @@ class LogVC: UIViewController, UITextViewDelegate {
     
     @IBAction func adjustEating(sender: UIButton!){
         var x: Int!
+        if eatingLbl.text == "~" {
+            log.eating = 0
+            eatingLbl.text = "0"
+            return
+        }
         if sender.accessibilityIdentifier == "-" {
             if log.eating == -3 {x = 0}
             else {x = -1}

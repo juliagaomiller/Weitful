@@ -17,6 +17,8 @@ enum Type: String {
 }
 
 struct segueID {
+    static let observationCommentsVC = "ObservationCommentsVC"
+    static let newCommentVC = "NewCommentVC" //ObservationCommentsVC >> NewObservationVC
     static let newObservationVC = "NewObservationVC"
     static let observationVC = "ObservationVC"
     static let instructionsVC = "InstructionsVC"
@@ -33,7 +35,8 @@ struct Color {
 
 class H {
     static func calculateProgress(now: Double, before: Double)->String{
-        if now == 0 || before == 0 {
+        //-100 is the noData variable in DayLog
+        if now == -100 || before == -100 {
             return ""
         }
         var difference = now - before

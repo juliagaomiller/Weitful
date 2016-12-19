@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Weitful/ObservationMethods.swift"
-            timestampString = "503265212.156363"
+            filePath = "Weitful/OffScreenRightAC.swift"
+            timestampString = "503854277.592693"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "sortObservationsIntoAppropriateArrays(array:)"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "animateTransition(using:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,14 +25,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Weitful/ObservationMethods.swift"
-            timestampString = "503264736.218583"
+            filePath = "Weitful/TransitionExtensions.swift"
+            timestampString = "503855615.240638"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "ObservationVC"
-            landmarkType = "4">
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "animationController(forDismissed:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -11,7 +11,12 @@ import Foundation
 extension NSDate {
     
     func convertToString(format: String)->String{
+        
         let formatter = DateFormatter()
+        if format == "HH:mm" {
+            formatter.amSymbol = "AM"
+            formatter.pmSymbol = "PM"
+        }
         formatter.dateFormat = format
         let day = formatter.string(from: self as Date)
         return day

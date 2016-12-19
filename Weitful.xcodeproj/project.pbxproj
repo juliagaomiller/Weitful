@@ -9,15 +9,24 @@
 /* Begin PBXBuildFile section */
 		1906AFBD1DFA145E001356C3 /* InstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1906AFBC1DFA145E001356C3 /* InstructionCell.swift */; };
 		1906AFBF1DFA1755001356C3 /* InstructionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1906AFBE1DFA1755001356C3 /* InstructionTransition.swift */; };
+		1913E93E1E030A590051FF80 /* ObservationComments+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913E93A1E030A590051FF80 /* ObservationComments+CoreDataClass.swift */; };
+		1913E93F1E030A590051FF80 /* ObservationComments+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913E93B1E030A590051FF80 /* ObservationComments+CoreDataProperties.swift */; };
+		1913E9421E0349890051FF80 /* Observation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913E9401E0349890051FF80 /* Observation+CoreDataClass.swift */; };
+		1913E9431E0349890051FF80 /* Observation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913E9411E0349890051FF80 /* Observation+CoreDataProperties.swift */; };
 		192CF3F41DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3F21DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift */; };
 		192CF3F51DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3F31DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift */; };
 		192CF3F71DEF4CA900D5E2D5 /* LogMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3F61DEF4CA900D5E2D5 /* LogMethods.swift */; };
 		192CF3F91DEF4CB200D5E2D5 /* MainMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3F81DEF4CB200D5E2D5 /* MainMethods.swift */; };
 		192CF3FB1DEF972900D5E2D5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3FA1DEF972900D5E2D5 /* Helper.swift */; };
-		196E18161DFF2B7C005C17BF /* Observation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E18141DFF2B7C005C17BF /* Observation+CoreDataClass.swift */; };
-		196E18171DFF2B7C005C17BF /* Observation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E18151DFF2B7C005C17BF /* Observation+CoreDataProperties.swift */; };
+		196E187F1E024A9C005C17BF /* ObservationCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E187E1E024A9C005C17BF /* ObservationCommentCell.swift */; };
+		196E18811E024AFF005C17BF /* ObservationCommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E18801E024AFF005C17BF /* ObservationCommentsVC.swift */; };
+		196E18931E025CC6005C17BF /* NewCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E18921E025CC5005C17BF /* NewCommentVC.swift */; };
 		19A3F1051DE81D7500BACDDC /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3F1041DE81D7500BACDDC /* NSDateExtension.swift */; };
-		19D66F981DF9ED8D000EC885 /* InstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F971DF9ED8D000EC885 /* InstructionVC.swift */; };
+		19A78BB31E0828BD001131E3 /* OffScreenRightAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A78BB21E0828BC001131E3 /* OffScreenRightAC.swift */; };
+		19A78BB61E082B63001131E3 /* TransitionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A78BB51E082B63001131E3 /* TransitionExtensions.swift */; };
+		19A78BB81E0831E1001131E3 /* SwipeDownAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A78BB71E0831E1001131E3 /* SwipeDownAC.swift */; };
+		19D30AF51E0777BE001EEB7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D30AF41E0777BE001EEB7F /* Main.storyboard */; };
+		19D66F981DF9ED8D000EC885 /* InstructionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F971DF9ED8D000EC885 /* InstructionsVC.swift */; };
 		19D66F9A1DF9ED96000EC885 /* InstructionMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F991DF9ED96000EC885 /* InstructionMethods.swift */; };
 		19D66F9C1DF9EDA4000EC885 /* InstructionDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F9B1DF9EDA4000EC885 /* InstructionDefaults.swift */; };
 		19D66FA11DF9F46C000EC885 /* Eating+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F9D1DF9F46C000EC885 /* Eating+CoreDataClass.swift */; };
@@ -29,7 +38,6 @@
 		19DFB0FF1DFE1EF400CC2925 /* ObservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DFB0FE1DFE1EF400CC2925 /* ObservationCell.swift */; };
 		19DFB1091DFF010E00CC2925 /* ObservationMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DFB1081DFF010E00CC2925 /* ObservationMethods.swift */; };
 		19E8D1C91DE6A85A00C2258A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1C81DE6A85A00C2258A /* AppDelegate.swift */; };
-		19E8D1CE1DE6A85A00C2258A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E8D1CC1DE6A85A00C2258A /* Main.storyboard */; };
 		19E8D1D11DE6A85A00C2258A /* Weitful.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1CF1DE6A85A00C2258A /* Weitful.xcdatamodeld */; };
 		19E8D1D31DE6A85A00C2258A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19E8D1D21DE6A85A00C2258A /* Assets.xcassets */; };
 		19E8D1D61DE6A85A00C2258A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E8D1D41DE6A85A00C2258A /* LaunchScreen.storyboard */; };
@@ -41,15 +49,24 @@
 /* Begin PBXFileReference section */
 		1906AFBC1DFA145E001356C3 /* InstructionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionCell.swift; sourceTree = "<group>"; };
 		1906AFBE1DFA1755001356C3 /* InstructionTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionTransition.swift; sourceTree = "<group>"; };
+		1913E93A1E030A590051FF80 /* ObservationComments+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ObservationComments+CoreDataClass.swift"; path = "../ObservationComments+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1913E93B1E030A590051FF80 /* ObservationComments+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ObservationComments+CoreDataProperties.swift"; path = "../ObservationComments+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1913E9401E0349890051FF80 /* Observation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Observation+CoreDataClass.swift"; path = "../Observation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1913E9411E0349890051FF80 /* Observation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Observation+CoreDataProperties.swift"; path = "../Observation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		192CF3F21DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DayLog+CoreDataClass.swift"; path = "../DayLog+CoreDataClass.swift"; sourceTree = "<group>"; };
 		192CF3F31DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DayLog+CoreDataProperties.swift"; path = "../DayLog+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		192CF3F61DEF4CA900D5E2D5 /* LogMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMethods.swift; sourceTree = "<group>"; };
 		192CF3F81DEF4CB200D5E2D5 /* MainMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMethods.swift; sourceTree = "<group>"; };
 		192CF3FA1DEF972900D5E2D5 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		196E18141DFF2B7C005C17BF /* Observation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Observation+CoreDataClass.swift"; path = "../Observation+CoreDataClass.swift"; sourceTree = "<group>"; };
-		196E18151DFF2B7C005C17BF /* Observation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Observation+CoreDataProperties.swift"; path = "../Observation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		196E187E1E024A9C005C17BF /* ObservationCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationCommentCell.swift; sourceTree = "<group>"; };
+		196E18801E024AFF005C17BF /* ObservationCommentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationCommentsVC.swift; sourceTree = "<group>"; };
+		196E18921E025CC5005C17BF /* NewCommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommentVC.swift; sourceTree = "<group>"; };
 		19A3F1041DE81D7500BACDDC /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
-		19D66F971DF9ED8D000EC885 /* InstructionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionVC.swift; sourceTree = "<group>"; };
+		19A78BB21E0828BC001131E3 /* OffScreenRightAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffScreenRightAC.swift; sourceTree = "<group>"; };
+		19A78BB51E082B63001131E3 /* TransitionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionExtensions.swift; sourceTree = "<group>"; };
+		19A78BB71E0831E1001131E3 /* SwipeDownAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeDownAC.swift; sourceTree = "<group>"; };
+		19D30AF41E0777BE001EEB7F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		19D66F971DF9ED8D000EC885 /* InstructionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsVC.swift; sourceTree = "<group>"; };
 		19D66F991DF9ED96000EC885 /* InstructionMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionMethods.swift; sourceTree = "<group>"; };
 		19D66F9B1DF9EDA4000EC885 /* InstructionDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionDefaults.swift; sourceTree = "<group>"; };
 		19D66F9D1DF9F46C000EC885 /* Eating+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Eating+CoreDataClass.swift"; path = "../Eating+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -62,7 +79,6 @@
 		19DFB1081DFF010E00CC2925 /* ObservationMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationMethods.swift; sourceTree = "<group>"; };
 		19E8D1C51DE6A85A00C2258A /* Weitful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weitful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E8D1C81DE6A85A00C2258A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		19E8D1CD1DE6A85A00C2258A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19E8D1D01DE6A85A00C2258A /* Weitful.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weitful.xcdatamodel; sourceTree = "<group>"; };
 		19E8D1D21DE6A85A00C2258A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19E8D1D51DE6A85A00C2258A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,10 +99,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		196E18941E025CE0005C17BF /* Observations */ = {
+			isa = PBXGroup;
+			children = (
+				196E18801E024AFF005C17BF /* ObservationCommentsVC.swift */,
+				196E18921E025CC5005C17BF /* NewCommentVC.swift */,
+				19DFB0FA1DFE1ED300CC2925 /* ObservationVC.swift */,
+				19DFB1081DFF010E00CC2925 /* ObservationMethods.swift */,
+				19DFB0FC1DFE1EE400CC2925 /* NewObservationVC.swift */,
+			);
+			name = Observations;
+			sourceTree = "<group>";
+		};
+		19A78BB41E0828C3001131E3 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				19A78BB21E0828BC001131E3 /* OffScreenRightAC.swift */,
+				19A78BB71E0831E1001131E3 /* SwipeDownAC.swift */,
+				19A78BB51E082B63001131E3 /* TransitionExtensions.swift */,
+			);
+			name = Animator;
+			sourceTree = "<group>";
+		};
 		19D66FA51DF9F480000EC885 /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				196E18151DFF2B7C005C17BF /* Observation+CoreDataProperties.swift */,
+				1913E9411E0349890051FF80 /* Observation+CoreDataProperties.swift */,
+				1913E93B1E030A590051FF80 /* ObservationComments+CoreDataProperties.swift */,
 				192CF3F31DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift */,
 				19D66F9E1DF9F46C000EC885 /* Eating+CoreDataProperties.swift */,
 				19D66FA01DF9F46C000EC885 /* Exercising+CoreDataProperties.swift */,
@@ -126,7 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				192CF3FA1DEF972900D5E2D5 /* Helper.swift */,
-				196E18141DFF2B7C005C17BF /* Observation+CoreDataClass.swift */,
+				1913E9401E0349890051FF80 /* Observation+CoreDataClass.swift */,
+				1913E93A1E030A590051FF80 /* ObservationComments+CoreDataClass.swift */,
 				192CF3F21DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift */,
 				19D66F9D1DF9F46C000EC885 /* Eating+CoreDataClass.swift */,
 				19D66F9F1DF9F46C000EC885 /* Exercising+CoreDataClass.swift */,
@@ -139,10 +179,13 @@
 		19E8D1EA1DE7616E00C2258A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				19E8D1CC1DE6A85A00C2258A /* Main.storyboard */,
+				19A78BB41E0828C3001131E3 /* Animator */,
+				19D30AF41E0777BE001EEB7F /* Main.storyboard */,
 				19E8D1E31DE6B54B00C2258A /* LogCell.swift */,
+				196E187E1E024A9C005C17BF /* ObservationCommentCell.swift */,
 				1906AFBC1DFA145E001356C3 /* InstructionCell.swift */,
 				19DFB0FE1DFE1EF400CC2925 /* ObservationCell.swift */,
+				1906AFBE1DFA1755001356C3 /* InstructionTransition.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -150,15 +193,12 @@
 		19E8D1EB1DE7617500C2258A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				19DFB0FA1DFE1ED300CC2925 /* ObservationVC.swift */,
-				19DFB1081DFF010E00CC2925 /* ObservationMethods.swift */,
-				19DFB0FC1DFE1EE400CC2925 /* NewObservationVC.swift */,
-				1906AFBE1DFA1755001356C3 /* InstructionTransition.swift */,
+				196E18941E025CE0005C17BF /* Observations */,
 				19E8D1DD1DE6B4DB00C2258A /* MainVC.swift */,
 				192CF3F81DEF4CB200D5E2D5 /* MainMethods.swift */,
 				19E8D1DF1DE6B4E800C2258A /* LogVC.swift */,
 				192CF3F61DEF4CA900D5E2D5 /* LogMethods.swift */,
-				19D66F971DF9ED8D000EC885 /* InstructionVC.swift */,
+				19D66F971DF9ED8D000EC885 /* InstructionsVC.swift */,
 				19D66F991DF9ED96000EC885 /* InstructionMethods.swift */,
 				19D66F9B1DF9EDA4000EC885 /* InstructionDefaults.swift */,
 			);
@@ -237,9 +277,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19D30AF51E0777BE001EEB7F /* Main.storyboard in Resources */,
 				19E8D1D61DE6A85A00C2258A /* LaunchScreen.storyboard in Resources */,
 				19E8D1D31DE6A85A00C2258A /* Assets.xcassets in Resources */,
-				19E8D1CE1DE6A85A00C2258A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,28 +290,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1913E93E1E030A590051FF80 /* ObservationComments+CoreDataClass.swift in Sources */,
 				19D66FA31DF9F46C000EC885 /* Exercising+CoreDataClass.swift in Sources */,
 				19DFB1091DFF010E00CC2925 /* ObservationMethods.swift in Sources */,
+				19A78BB61E082B63001131E3 /* TransitionExtensions.swift in Sources */,
+				1913E93F1E030A590051FF80 /* ObservationComments+CoreDataProperties.swift in Sources */,
+				1913E9421E0349890051FF80 /* Observation+CoreDataClass.swift in Sources */,
 				192CF3FB1DEF972900D5E2D5 /* Helper.swift in Sources */,
+				196E18931E025CC6005C17BF /* NewCommentVC.swift in Sources */,
 				19D66FA11DF9F46C000EC885 /* Eating+CoreDataClass.swift in Sources */,
 				1906AFBF1DFA1755001356C3 /* InstructionTransition.swift in Sources */,
+				1913E9431E0349890051FF80 /* Observation+CoreDataProperties.swift in Sources */,
+				196E18811E024AFF005C17BF /* ObservationCommentsVC.swift in Sources */,
 				19E8D1D11DE6A85A00C2258A /* Weitful.xcdatamodeld in Sources */,
 				19D66F9C1DF9EDA4000EC885 /* InstructionDefaults.swift in Sources */,
 				19A3F1051DE81D7500BACDDC /* NSDateExtension.swift in Sources */,
+				19A78BB31E0828BD001131E3 /* OffScreenRightAC.swift in Sources */,
 				19D66FA41DF9F46C000EC885 /* Exercising+CoreDataProperties.swift in Sources */,
 				19DFB0FD1DFE1EE400CC2925 /* NewObservationVC.swift in Sources */,
-				196E18171DFF2B7C005C17BF /* Observation+CoreDataProperties.swift in Sources */,
+				196E187F1E024A9C005C17BF /* ObservationCommentCell.swift in Sources */,
 				19E8D1E01DE6B4E800C2258A /* LogVC.swift in Sources */,
 				19E8D1E41DE6B54B00C2258A /* LogCell.swift in Sources */,
 				192CF3F41DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift in Sources */,
 				19DFB0FB1DFE1ED300CC2925 /* ObservationVC.swift in Sources */,
-				196E18161DFF2B7C005C17BF /* Observation+CoreDataClass.swift in Sources */,
 				19DFB0FF1DFE1EF400CC2925 /* ObservationCell.swift in Sources */,
+				19A78BB81E0831E1001131E3 /* SwipeDownAC.swift in Sources */,
 				192CF3F51DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift in Sources */,
 				19E8D1DE1DE6B4DB00C2258A /* MainVC.swift in Sources */,
 				19D66F9A1DF9ED96000EC885 /* InstructionMethods.swift in Sources */,
 				192CF3F91DEF4CB200D5E2D5 /* MainMethods.swift in Sources */,
-				19D66F981DF9ED8D000EC885 /* InstructionVC.swift in Sources */,
+				19D66F981DF9ED8D000EC885 /* InstructionsVC.swift in Sources */,
 				19D66FA21DF9F46C000EC885 /* Eating+CoreDataProperties.swift in Sources */,
 				19E8D1C91DE6A85A00C2258A /* AppDelegate.swift in Sources */,
 				1906AFBD1DFA145E001356C3 /* InstructionCell.swift in Sources */,
@@ -282,14 +330,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		19E8D1CC1DE6A85A00C2258A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				19E8D1CD1DE6A85A00C2258A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		19E8D1D41DE6A85A00C2258A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

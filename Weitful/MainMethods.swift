@@ -91,13 +91,15 @@ extension MainVC {
         } else {
             print(prevDayLogs.count)
             prevDayLogs.sort(by: { $0.date!.compare($1.date as! Date) == .orderedDescending })
-            let date = NSDate()
-
+            
             //Check if we have already logged weight today
+            let date = NSDate()
             if prevDayLogs[0].MMddyy == date.convertToString(format: "MMddyy") {
                 today = prevDayLogs[0]
                 prevDayLogs.removeFirst()
-            } else {today = DayLog(context: context)}
+            } else {
+                today = DayLog(context: context)
+            }
         }
         print(prevDayLogs.count)
         delegate.saveContext()

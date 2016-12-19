@@ -18,19 +18,31 @@ class InstructionsVC: UIViewController {
     var eatingArray: [Eating]!
     var exerciseArray: [Exercising]!
     
+    override func viewDidLoad() {
+        
+        setUp()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
+    
+    @IBAction func back (){
+        dismissVC()
+    }
+    
+    
+    
     @IBAction func toggle(btn: UIButton){
-//        let sections = NSIndexSet(index: 0)
         if btn.currentTitle == "EATING" {
             currentState = .eating
             btn.setTitle("EXERCISING", for: .normal)
             tableView.reloadData()
-//            tableView.reloadSections(sections as IndexSet, with: .middle)
-            
         } else {
             currentState = .exercising
             btn.setTitle("EATING", for: .normal)
             tableView.reloadData()
-        
         }
     }
     
@@ -38,10 +50,7 @@ class InstructionsVC: UIViewController {
         revertBtn.isHidden = true
     }
     
-    override func viewDidLoad() {
-        
-        setUp()
-    }
+    
     
     func setUp(){
         tableView.delegate = self
@@ -52,26 +61,16 @@ class InstructionsVC: UIViewController {
         
         currentState = defaultState
         loadInstructionEntitiesFromDB()
-//        for x in eatingArray {
-//            print(x.defaultText!)
-//        }
-//        for x in exerciseArray {
-//            print(x.defaultText!)
-//        }
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        tableView.reloadData()
+    
+    
+    func dismissVC(){
+        self.dismiss(animated: true, completion: nil)
     }
     
-//    func segueToMenuVC(){
-//        self.dismiss(animated: true, completion: nil)
-//    }
-
     
-
 }
 
 extension InstructionsVC: UITableViewDelegate, UITableViewDataSource {

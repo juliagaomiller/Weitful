@@ -25,20 +25,20 @@ public class DayLog: NSManagedObject {
     
     var exercise: Int {
         get {
-            if int32exercise == noData {
-                return Int(noData)
-            } else {return Int(int32exercise)}
+            return Int(int32exercise)
         }
-        set {int32exercise = Int32(newValue)}
+        set {
+            int32exercise = Int32(newValue)
+        }
     }
     
     var eating: Int {
         get {
-            if int32eating == noData {
-                return Int(noData)
-            } else {return Int(int32eating)}
+            return Int(int32eating)
         }
-        set {int32eating = Int32(newValue)}
+        set {
+            int32eating = Int32(newValue)
+        }
     }
     
     var eatingStringWithPlusSign: String {

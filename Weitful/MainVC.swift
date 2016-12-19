@@ -29,6 +29,8 @@ class MainVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let context = delegate.persistentContainer.viewContext
+    let offscreenRight = OffScreenRightAC()
+    let swipeDownAC = SwipeDownAC()
     
     var prevDayLogs: [DayLog] = []
     var cellSelectedLog: DayLog?
@@ -37,6 +39,16 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkForFirstLaunch()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueID.observationVC {
+            let vc = segue.destination
+            vc.transitioningDelegate = self
+        } else if segue.identifier == segueID.instructionsVC {
+            let vc = segue.destination
+            vc.transitioningDelegate = self
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

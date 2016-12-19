@@ -9,22 +9,17 @@
 import UIKit
 import CoreData
 
-
-
 class ObservationVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var exerciseBtn: UIButton!
-    @IBOutlet weak var eatingBtn: UIButton!
-    @IBOutlet weak var neitherBtn: UIButton!
+    
+    let offscreenRight = OffScreenRightAC()
     
     let context = delegate.persistentContainer.viewContext
-    let defaultTable: Type = .eating
-    var currentTable: Type!
+    var observations = [Observation]()
+    var comments = [ObservationComments]()
     
-    var eatingArray = [Observation]()
-    var exerciseArray = [Observation]()
-    var neitherArray = [Observation]()
+    //var indexPathForSelectedRow: Int?
     
     override func viewDidLoad() {
         setUp()
@@ -38,20 +33,25 @@ class ObservationVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier! == segueID.newObservationVC {
             let vc = segue.destination as! NewObservationVC
-            vc.type = currentTable
+            vc.rank = observations.count
+        } else if segue.identifier! == segueID.observationCommentsVC {
+            guard let indexPath = tableView.indexPathForSelectedRow else {fatalError()}
+            let vc = segue.destination as! ObservationCommentsVC
+            vc.observation = observations[indexPath.row]
+            vc.transitioningDelegate = self
+        } else if segue.identifier! == segueID.newCommentVC {
+            let vc = segue.destination as! NewCommentVC
+            vc.observation = observations[tableView.indexPathForSelectedRow!.row]
         }
     }
     
-    @IBAction func optionSelected(btn: UIButton){
-        handleButtonInput(btn: btn) //Either segue or update tableView
+    @IBAction func newObservation(){
+        performSegue(withIdentifier: segueID.newObservationVC, sender: nil)
     }
-    
+
     func setUp(){
         setTableViewDefaults()
-//        addLongPress()
         addSwipe()
-        currentTable = defaultTable
-        updateObservationArrays()
         reloadTableViewData()
     }
     
@@ -61,22 +61,61 @@ class ObservationVC: UIViewController {
         tableView.rowHeight = 70
         tableView.allowsMultipleSelectionDuringEditing = false //We need false to allow swipe deleting
     }
-    
-    
+
 }
 
 extension ObservationVC: UITableViewDelegate, UITableViewDataSource {
+
+    func updateTableView() {
+        self.tableView.reloadData()
+    }
+    func up(sender: UIButton){
+        let index = sender.tag
+        let o = observations[index]
+        if o.rank < observations.count {
+            let before = observations[index - 1]
+            before.rank += 1
+            o.rank -= 1
+            reloadTableViewData()
+        }
+    }
+    
+    func down(sender: UIButton){
+        let index = sender.tag
+        let o = observations[index]
+        if o.rank >= 0 {
+            let after = observations[index + 1]
+            after.rank -= 1
+           o.rank += 1
+            reloadTableViewData()
+        }
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return returnCorrectArray().count
+        return observations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let observation = observations[indexPath.row]
+        let comments = retrieveComments(observation: observation)
         let cell = tableView.dequeueReusableCell(withIdentifier: "ObservationCell") as! ObservationCell
-        let array = returnCorrectArray()
-        cell.configure(observation: array[indexPath.row])
-//        tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        cell.configure(observation: observation, comments: comments)
+        cell.upBtn.addTarget(self, action: #selector(up(sender:)), for: .touchUpInside)
+        cell.downBtn.addTarget(self, action: #selector(down(sender:)), for: .touchUpInside)
+        cell.upBtn.tag = indexPath.row
+        cell.downBtn.tag = indexPath.row
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let observation = observations[indexPath.row]
+        if observation.comments?.count == 0 {
+            performSegue(withIdentifier: segueID.newCommentVC, sender: nil)
+        } else {
+            performSegue(withIdentifier: segueID.observationCommentsVC, sender: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -84,11 +123,11 @@ extension ObservationVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //allows delete
         if (editingStyle == .delete){
-            let observation = returnCorrectArray()[indexPath.row]
+            let observation = observations[indexPath.row]
             context.delete(observation)
             delegate.saveContext()
-            updateObservationArrays()
             reloadTableViewData()
         }
     }

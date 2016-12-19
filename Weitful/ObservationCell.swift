@@ -7,19 +7,52 @@
 //
 
 import UIKit
+import CoreData
+
+//protocol ObservationVCDelegate {
+//    func updateTableView()
+//    func returnArrayCount()->Int
+//    func segueToComments()
+//    func segueToNewComments()
+//}
 
 class ObservationCell: UITableViewCell {
 
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var negativeBtn: UIButton!
-    @IBOutlet weak var positiveBtn: UIButton!
+    @IBOutlet weak var positiveLabel: UILabel!
+    @IBOutlet weak var negativeLabel: UILabel!
+    @IBOutlet weak var thumbBtn: UIButton!
+    @IBOutlet weak var upBtn: UIButton!
+    @IBOutlet weak var downBtn: UIButton!
     
-    func configure(observation x: Observation){
+    var observation: Observation!
+    
+    var negCount: Int = 0 {
+        didSet {
+            negativeLabel.text = String(negCount)
+        }
+    }
+    var posCount: Int = 0 {
+        didSet {
+            positiveLabel.text = String(posCount)
+        }
+    }
+    
+    func configure(observation x: Observation, comments: [ObservationComments]){
+        self.observation = x
+        checkComments(comments: comments)
         textView.text = x.text
-        backgroundColor = x.color
-        
-        negativeBtn.isHidden = true
-        positiveBtn.isHidden = true
+        backgroundColor = Color.lightBrown
+
+    }
+    
+    func checkComments(comments: [ObservationComments]){
+        posCount = 0
+        negCount = 0
+        for x in comments {
+            if x.isPositive {posCount += 1}
+            else {negCount += 1}
+        }
     }
 
 }
