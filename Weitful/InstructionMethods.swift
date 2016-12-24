@@ -26,11 +26,9 @@ extension InstructionsVC {
     
     func makeSureThereAreNoErrorsWithEntities(){
         if eatingArray.count != 7 {
-            print(eatingArray.count)
             fatalError()
         }
         if exerciseArray.count != 6 {
-            print(exerciseArray.count)
             fatalError()
         }
     }

@@ -22,6 +22,13 @@ extension NSDate {
         return day
     }
     
+    func returnDayOfWeekInt()->Int{
+        //1 is a monday, 7 is a sunday
+        let cal = Calendar.current
+        let index = cal.component(.weekday, from: self as Date)
+        return index-1
+    }
+    
     func returnDayOfWeek(abbreviated: Bool)->String {
         let weekdaysAbr = ["Su", "M", "T", "W", "Th", "F", "S"]
         let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -34,6 +41,15 @@ extension NSDate {
     var dayBefore:NSDate {
         let oneDay: Double = 60 * 60 * 24
         return self.addingTimeInterval(-(Double(oneDay)))
+    }
+    
+    func daysBetween(otherDate: NSDate)-> Int {
+        let cal = Calendar.current
+        let date1 = cal.startOfDay(for: self as Date)
+        let date2 = cal.startOfDay(for: otherDate as Date)
+        let components = cal.dateComponents([.day], from: date1, to: date2)
+        let elapsed = components.day
+        return elapsed!
     }
     
 }

@@ -16,9 +16,9 @@ public class DayLog: NSManagedObject {
     
     var dateString: String {
         get {
-            guard let string = date?.convertToString(format: "MMMM dd, yyyy") else {fatalError()}
-            let dayOfWeek = date!.returnDayOfWeek(abbreviated: true)
-            let newString = string + " (\(dayOfWeek))"
+            guard let string = date?.convertToString(format: "MMM dd, yyyy") else {fatalError()}
+            let dayOfWeek = date!.returnDayOfWeek(abbreviated: false)
+            let newString = "\(dayOfWeek), " + string
             return newString
         }
     }
@@ -45,14 +45,14 @@ public class DayLog: NSManagedObject {
         if int32eating == noData {return "~"}
         if eating <= 0 {
             return String(eating)
-        } else { return "+ \(eating)"}
+        } else { return "+\(eating)"}
     }
     
     var exerciseStringWithPlusSign: String {
         if int32eating == noData {return "~"}
         if exercise <= 0 {
             return String(exercise)
-        } else { return "+ \(exercise)"}
+        } else { return "+\(exercise)"}
     }
     
     

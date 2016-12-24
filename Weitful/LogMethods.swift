@@ -13,15 +13,16 @@ import CoreData
 extension LogVC {
     
     func addSwipeToView(){
-        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(segueToMain))
-        swipe.direction = .right
-        self.view.addGestureRecognizer(swipe)
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeRight.direction = .right
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeRight)
+        self.view.addGestureRecognizer(swipeLeft)
     }
     
-    func segueToMain(){
-        //calculate weight difference from previous; if weight difference += 3 lbs add alert controller;
-        let vc = storyboard?.instantiateViewController(withIdentifier: "MainVC") as! MainVC
-        present(vc, animated: false, completion: nil)
+    func handleSwipe(){
+        self.dismiss(animated: true, completion: nil)
     }
     
     func assignActionsToKeypad(){

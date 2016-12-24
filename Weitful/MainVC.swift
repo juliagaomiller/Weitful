@@ -18,36 +18,40 @@ class MainVC: UIViewController {
     @IBOutlet weak var weightLbl: UILabel!
     @IBOutlet weak var exerciseLbl: UILabel!
     @IBOutlet weak var eatingLbl: UILabel!
-    @IBOutlet weak var commentLbl: UILabel!
     @IBOutlet weak var progressLbl: UILabel!
     @IBOutlet weak var todayView: UIView!
-    @IBOutlet weak var showTextView: UIView!
-    @IBOutlet weak var cellTextLbl: UILabel!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var lastLogLbl: UILabel!
+    @IBOutlet weak var commentTV: UITextView!
+    @IBOutlet weak var whiteTV: UITextView!
     
     @IBOutlet weak var tableView: UITableView!
     
     let context = delegate.persistentContainer.viewContext
     let offscreenRight = OffScreenRightAC()
     let swipeDownAC = SwipeDownAC()
+    let splitAC = SplitAC()
+    let swipeLeftAC = SwipeLeftAC()
     
     var prevDayLogs: [DayLog] = []
     var cellSelectedLog: DayLog?
+    var newLog: DayLog?
     var today: DayLog!
-    
+    var cellColors = [UIColor]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         checkForFirstLaunch()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueID.observationVC {
-            let vc = segue.destination
-            vc.transitioningDelegate = self
-        } else if segue.identifier == segueID.instructionsVC {
-            let vc = segue.destination
-            vc.transitioningDelegate = self
+        let vc = segue.destination
+        vc.transitioningDelegate = self
+        if segue.identifier == segueID.logVC {
+            let logVC = segue.destination as! LogVC
+            //logVC.transitioningDelegate = self
+            logVC.log = sender as! DayLog
         }
     }
     
@@ -58,7 +62,7 @@ class MainVC: UIViewController {
     
     @IBAction func edit(){
         guard let log = cellSelectedLog else {fatalError()}
-        segueToLogVC(log: log)
+        performSegue(withIdentifier: segueID.logVC, sender: log)
     }
     
     @IBAction func back(){
@@ -68,22 +72,23 @@ class MainVC: UIViewController {
     func setUp(){
         tableView.delegate = self
         tableView.dataSource = self
-        addTapRecognizerToView()
-        addSwipeDownGestureRecognizer()
-        addSwipeLeftGestureRecognizer()
+        commentTV.layer.cornerRadius = 7.0
+        whiteTV.layer.cornerRadius = 7.0
+        addGestureRecognizers()
         fetchLogs()
         updateView()
     }
-
+    
     func updateView(){
         hideCellInfo()
         dateLbl.text = today.dateString
         weightLbl.text = today.weightString
         exerciseLbl.text = today.exerciseString
         eatingLbl.text = today.eatingString
-        commentLbl.text = today.commentary
+        commentTV.text = today.commentary
         if prevDayLogs.count != 0 {
            progressLbl.text = H.calculateProgress(now: today.weight, before: prevDayLogs[0].weight)
+            calculateLastLog()
         } else {progressLbl.text = ""}
         
         //add date extension to calculate progress
@@ -107,44 +112,79 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         let numOfRows = tableView.numberOfRows(inSection: indexPath.section)
         if i == numOfRows - 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddDate")!
+            cell.selectionStyle = .none
             return cell
         }
         if prevDayLogs.count < 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Placeholder")!
+            cell.selectionStyle = .none
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LogCell") as! LogCell
-            if i < prevDayLogs.count - 1 {
-                //previous is for calculating progress
-                cell.configureCell(log: prevDayLogs[i], previous: prevDayLogs[i+1])
-            } else {
-                //there is only one prev day log so can't calculate previous
-                cell.configureCell(log: prevDayLogs[i], previous: nil)
+            if i == 5 {
+                
             }
+            if i < prevDayLogs.count - 1 {
+                //the tableView is organized so that yesterday is at the top of the prevDayLogs array.
+                if i > 0 {
+                    cell.configureCell(log: prevDayLogs[i], previous: prevDayLogs[i+1], prevCellColor: cellColors[i-1])
+                } else {
+                   cell.configureCell(log: prevDayLogs[i], previous: prevDayLogs[i+1], prevCellColor: nil)
+                }
+            } else {
+                //we're on the last cell in the table.
+                if i > 0 {
+                    cell.configureCell(log: prevDayLogs[i], previous: prevDayLogs[i-1], prevCellColor: cellColors[i-1])
+                } else {
+                    cell.configureCell(log: prevDayLogs[i], previous: nil, prevCellColor: nil)
+                }
+                
+            }
+            if cellColors.count < prevDayLogs.count {
+                cellColors.append(cell.backgroundColor!)
+            }
+            cell.selectionStyle = .default
             return cell
         }
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         let i = indexPath.row
         if cell?.reuseIdentifier == "LogCell"{
             //show text commentary and buttons
             cellSelectedLog = prevDayLogs[i]
-            cellTextLbl.text = cellSelectedLog!.commentary
+            whiteTV.isHidden = false
+            whiteTV.text = cellSelectedLog!.commentary
             editBtn.isHidden = false
             backBtn.isHidden = false
-            showTextView.isHidden = false
         } else if cell?.reuseIdentifier == "AddDate"{
-            let newLog = DayLog(context: context)
+            newLog = DayLog(context: context)
             var date: NSDate!
             //if no prevDayLogs return todays date
             if prevDayLogs.count == 0 {date = today.date}
             //return date for last log in array
             else {date = prevDayLogs.last?.date}
             let newDate = date.dayBefore
-            newLog.date = newDate
+            newLog!.date = newDate
             delegate.saveContext()
-            segueToLogVC(log: newLog)
+            performSegue(withIdentifier: segueID.logVC, sender: newLog)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let log = prevDayLogs[indexPath.row]
+            prevDayLogs.remove(at: indexPath.row)
+            context.delete(log)
+            delegate.saveContext()
+            tableView.reloadData()
+            //just in case prevDayLog[0] was deleted
+            updateView()
         }
     }
 }

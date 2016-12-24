@@ -17,6 +17,7 @@ class LogVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var commentTV: UITextView!
     @IBOutlet weak var commentsStack: UIStackView!
+    @IBOutlet weak var dateBackground: UIView!
     
     @IBOutlet var keypad: Array<UIButton>?
     
@@ -81,6 +82,7 @@ class LogVC: UIViewController, UITextViewDelegate {
     }
     
     func setUp(){
+        self.view.sendSubview(toBack: dateBackground)
         commentTV.delegate = self
         addSwipeToView()
         assignActionsToKeypad()

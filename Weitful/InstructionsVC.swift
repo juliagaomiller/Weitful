@@ -11,6 +11,8 @@ class InstructionsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var revertBtn: UIButton!
+    @IBOutlet weak var toggleBtn: UIButton!
+    @IBOutlet weak var backBtn: UIButton!
     
     let context = delegate.persistentContainer.viewContext
     let defaultState = State.exercising
@@ -19,8 +21,20 @@ class InstructionsVC: UIViewController {
     var exerciseArray: [Exercising]!
     
     override func viewDidLoad() {
-        
         setUp()
+    }
+    
+    func setUp(){
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 60
+        
+        checkIfThereAreAnyEdits()
+        
+        currentState = defaultState
+        changeButtonColors(background: UIColor.black)
+        loadInstructionEntitiesFromDB()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,16 +46,31 @@ class InstructionsVC: UIViewController {
         dismissVC()
     }
     
-    
+    func changeButtonColors(background: UIColor){
+        revertBtn.backgroundColor = background
+        toggleBtn.backgroundColor = background
+        backBtn.backgroundColor = background
+        var textColor: UIColor!
+        if background == UIColor.black {
+            textColor = UIColor.white
+        } else {
+            textColor = UIColor.black
+        }
+        revertBtn.setTitleColor(textColor, for: .normal)
+        toggleBtn.setTitleColor(textColor, for: .normal)
+        backBtn.setTitleColor(textColor, for: .normal)
+    }
     
     @IBAction func toggle(btn: UIButton){
         if btn.currentTitle == "EATING" {
             currentState = .eating
             btn.setTitle("EXERCISING", for: .normal)
+            changeButtonColors(background: UIColor.white)
             tableView.reloadData()
         } else {
             currentState = .exercising
             btn.setTitle("EATING", for: .normal)
+            changeButtonColors(background: UIColor.black)
             tableView.reloadData()
         }
     }
@@ -49,22 +78,6 @@ class InstructionsVC: UIViewController {
     func checkIfThereAreAnyEdits(){
         revertBtn.isHidden = true
     }
-    
-    
-    
-    func setUp(){
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.rowHeight = 100
-        
-        checkIfThereAreAnyEdits()
-        
-        currentState = defaultState
-        loadInstructionEntitiesFromDB()
-        
-    }
-    
-    
     
     func dismissVC(){
         self.dismiss(animated: true, completion: nil)
@@ -86,10 +99,13 @@ extension InstructionsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let i = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "InstructionCell") as! InstructionCell
+        cell.selectionStyle = .none
         if currentState == .exercising {
             cell.configureCell(exercising: exerciseArray[i])
+            self.view.backgroundColor = UIColor.white
         } else {
             cell.configureCell(eating: eatingArray[i])
+            self.view.backgroundColor = UIColor.black
         }
         return cell
     }

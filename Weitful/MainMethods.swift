@@ -12,10 +12,37 @@ import CoreData
 
 extension MainVC {
     
+    func addGestureRecognizers(){
+        addTapRecognizerToView()
+        addSwipeDownGestureRecognizer()
+        addSwipeLeftGestureRecognizer() //goes to ObservationVC
+        addSwipeRightGestureRecognizer()
+    }
+    
+    func addSwipeRightGestureRecognizer(){
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(performSegue(withIdentifier:sender:)))
+    }
+    
+    func handleSwipeRight(){
+        performSegue(withIdentifier: segueID.tipVC, sender: nil)
+    }
+    
     func addSwipeDownGestureRecognizer(){
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(segueToInstructionVC))
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
+    }
+    
+    func calculateLastLog(){
+        if prevDayLogs.count == 0 {
+            lastLogLbl.text = ""
+        }
+        let elapsed = today.date?.daysBetween(otherDate: prevDayLogs[0].date!)
+        if elapsed! > 1 {
+            lastLogLbl.text = "Last log: \(elapsed) days ago"
+        } else {
+            lastLogLbl.text = "Last log: yesterday"
+        }
     }
     
     func addSwipeLeftGestureRecognizer(){
@@ -65,21 +92,14 @@ extension MainVC {
     }
     
     func viewPressed(sender: UIView!){
-        segueToLogVC(log: today)
+        performSegue(withIdentifier: segueID.logVC, sender: today)
     }
     
     func hideCellInfo(){
         editBtn.isHidden = true
         backBtn.isHidden = true
-        showTextView.isHidden = true
+        whiteTV.isHidden = true
         cellSelectedLog = nil
-    }
-    
-    func segueToLogVC(log: DayLog){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "LogVC") as! LogVC
-        vc.log = log
-//        present(vc, animated: false, completion: nil)
-        present(vc, animated: false, completion: nil)
     }
     
     func fetchLogs(){
@@ -89,7 +109,6 @@ extension MainVC {
             today = DayLog(context: context)
             prevDayLogs.append(today)
         } else {
-            print(prevDayLogs.count)
             prevDayLogs.sort(by: { $0.date!.compare($1.date as! Date) == .orderedDescending })
             
             //Check if we have already logged weight today
@@ -101,7 +120,6 @@ extension MainVC {
                 today = DayLog(context: context)
             }
         }
-        print(prevDayLogs.count)
         delegate.saveContext()
         tableView.reloadData()
     }

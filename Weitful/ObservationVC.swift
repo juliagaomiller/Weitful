@@ -12,6 +12,9 @@ import CoreData
 class ObservationVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var clearDone: UIStackView!
+    @IBOutlet weak var newObservTV: UITextView!
+    @IBOutlet weak var TVborder: UIView!
     
     let offscreenRight = OffScreenRightAC()
     
@@ -31,25 +34,33 @@ class ObservationVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier! == segueID.newObservationVC {
-            let vc = segue.destination as! NewObservationVC
-            vc.rank = observations.count
-        } else if segue.identifier! == segueID.observationCommentsVC {
+        if segue.identifier! == segueID.commentsVC{
             guard let indexPath = tableView.indexPathForSelectedRow else {fatalError()}
-            let vc = segue.destination as! ObservationCommentsVC
+            let vc = segue.destination as! CommentsVC
             vc.observation = observations[indexPath.row]
             vc.transitioningDelegate = self
-        } else if segue.identifier! == segueID.newCommentVC {
-            let vc = segue.destination as! NewCommentVC
-            vc.observation = observations[tableView.indexPathForSelectedRow!.row]
         }
     }
     
+    @IBAction func clear(){
+        newObservTV.text = ""
+    }
+    
+    @IBAction func done(){
+        if newObservTV.text != "" {
+            let _ = Observation(text: newObservTV.text, rank: observations.count, context: context)
+            delegate.saveContext()
+        }
+        animateNewObservationView(isActivated: false)
+        reloadTableViewData()
+    }
+    
     @IBAction func newObservation(){
-        performSegue(withIdentifier: segueID.newObservationVC, sender: nil)
+        animateNewObservationView(isActivated: true)
     }
 
     func setUp(){
+        hideNewObservationView()
         setTableViewDefaults()
         addSwipe()
         reloadTableViewData()
@@ -58,7 +69,8 @@ class ObservationVC: UIViewController {
     func setTableViewDefaults(){
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 70
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = 100
         tableView.allowsMultipleSelectionDuringEditing = false //We need false to allow swipe deleting
     }
 
@@ -72,7 +84,7 @@ extension ObservationVC: UITableViewDelegate, UITableViewDataSource {
     func up(sender: UIButton){
         let index = sender.tag
         let o = observations[index]
-        if o.rank < observations.count {
+        if o.rank > 0 {
             let before = observations[index - 1]
             before.rank += 1
             o.rank -= 1
@@ -83,7 +95,7 @@ extension ObservationVC: UITableViewDelegate, UITableViewDataSource {
     func down(sender: UIButton){
         let index = sender.tag
         let o = observations[index]
-        if o.rank >= 0 {
+        if o.rank < observations.count - 1 {
             let after = observations[index + 1]
             after.rank -= 1
            o.rank += 1
@@ -105,19 +117,19 @@ extension ObservationVC: UITableViewDelegate, UITableViewDataSource {
         cell.downBtn.addTarget(self, action: #selector(down(sender:)), for: .touchUpInside)
         cell.upBtn.tag = indexPath.row
         cell.downBtn.tag = indexPath.row
-        cell.selectionStyle = .none
+        cell.selectionStyle = .default
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor.white
+        } else {
+            cell.backgroundColor = Color.lightCellColor
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let observation = observations[indexPath.row]
-        if observation.comments?.count == 0 {
-            performSegue(withIdentifier: segueID.newCommentVC, sender: nil)
-        } else {
-            performSegue(withIdentifier: segueID.observationCommentsVC, sender: nil)
-        }
+        performSegue(withIdentifier: segueID.commentsVC, sender: nil)
     }
-    
+
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

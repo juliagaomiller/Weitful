@@ -1,20 +1,19 @@
 //
-//  OffScreenRightAC.swift
+//  SwipeLeft.swift
 //  Weitful
 //
-//  Created by Julia Miller on 12/19/16.
+//  Created by Julia Miller on 12/24/16.
 //  Copyright © 2016 Julia Miller. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class OffScreenRightAC: NSObject, UIViewControllerAnimatedTransitioning {
+class SwipeLeftAC: NSObject, UIViewControllerAnimatedTransitioning {
     
-    var isDismissing = false
+    var isPresenting = true
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        0.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -29,15 +28,15 @@ class OffScreenRightAC: NSObject, UIViewControllerAnimatedTransitioning {
         container.addSubview(fromV)
         container.addSubview(toV)
         
-        if isDismissing {
-            toV.transform = moveOffscreenLeft
+        if isPresenting {
+            toV.transform = moveOffScreenLeft
         } else {
             toV.transform = moveOffscreenRight
         }
-
+        
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             toV.transform = CGAffineTransform.identity
-            if self.isDismissing {
+            if self.isPresenting {
                 fromV.transform = moveOffscreenRight
             } else {
                 fromV.transform = moveOffscreenLeft
@@ -46,5 +45,4 @@ class OffScreenRightAC: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.completeTransition(true)
         })
     }
-    
 }

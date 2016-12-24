@@ -15,7 +15,7 @@ public class ObservationComments: NSManagedObject {
     
     var timeString: String {
         get {
-            let string = date?.convertToString(format: "HH:mm")
+            let string = date?.convertToString(format: "h:mm a")
             return string!
         }
     }

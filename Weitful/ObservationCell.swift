@@ -42,7 +42,9 @@ class ObservationCell: UITableViewCell {
         self.observation = x
         checkComments(comments: comments)
         textView.text = x.text
-        backgroundColor = Color.lightBrown
+        backgroundColor = Color.extraLightGrey
+        upBtn.alpha = 0.5
+        downBtn.alpha = 0.5
 
     }
     

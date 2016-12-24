@@ -17,20 +17,24 @@ enum Type: String {
 }
 
 struct segueID {
-    static let observationCommentsVC = "ObservationCommentsVC"
-    static let newCommentVC = "NewCommentVC" //ObservationCommentsVC >> NewObservationVC
-    static let newObservationVC = "NewObservationVC"
+    static let commentsVC = "CommentsVC"
     static let observationVC = "ObservationVC"
     static let instructionsVC = "InstructionsVC"
+    static let logVC = "LogVC"
+    static let tipVC = "TipVC"
 }
 
 struct Color {
+    static let darkCellColor = UIColor(red:0.42, green:0.42, blue:0.42, alpha:1.0)
+    static let mediumCellColor = UIColor(red:0.57, green:0.57, blue:0.57, alpha:1.0)
+    static let lightCellColor = UIColor(red:0.82, green:0.82, blue:0.82, alpha:1.0)
     static let darkBrown = UIColor(red:0.69, green:0.53, blue:0.32, alpha:1.0)
     static let lightBrown = UIColor(red:0.84, green:0.73, blue:0.60, alpha:1.0)
     static let darkBlue = UIColor(red:0.48, green:0.66, blue:0.85, alpha:1.0)
     static let lightBlue = UIColor(red:0.76, green:0.82, blue:0.89, alpha:1.0)
     static let darkYellow = UIColor(red:0.93, green:0.84, blue:0.44, alpha:1.0)
     static let lightYellow = UIColor(red:0.95, green:0.94, blue:0.67, alpha:1.0)
+    static let extraLightGrey = UIColor(red:0.89, green:0.89, blue:0.89, alpha:1.0)
 }
 
 class H {
@@ -46,7 +50,6 @@ class H {
             string = "+"
         }
         string = string + String(difference)
-        print(string)
         return string
     }
 }

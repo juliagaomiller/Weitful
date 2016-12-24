@@ -14,7 +14,6 @@ extension ObservationVC {
     }
     
     func reloadTableViewData(){
-        print("reloading tableview information")
         updateObservations()
         updateComments()
         tableView.isHidden = false
@@ -51,6 +50,47 @@ extension ObservationVC {
         var array = fetchObservations()
         array = array.sorted(by: {$0.rank < $1.rank})
         observations = array
+    }
+    
+    func animateNewObservationView(isActivated: Bool){
+        if isActivated {
+            clearDone.isHidden = false
+            newObservTV.isHidden = false
+            TVborder.isHidden = false
+            TVborder.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            UIView.animate(withDuration: 0.4, animations: {
+                self.clearDone.alpha = 1
+                self.newObservTV.alpha = 1
+                self.TVborder.alpha = 1
+                self.TVborder.transform = CGAffineTransform.identity
+            }, completion: { _ in
+                self.newObservTV.becomeFirstResponder()
+            })
+        } else {
+            newObservTV.resignFirstResponder()
+            UIView.animate(withDuration: 0.3, animations: {
+                self.TVborder.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+                self.TVborder.alpha = 0
+                self.clearDone.alpha = 0
+                self.newObservTV.alpha = 0
+            }, completion: { _ in
+                self.TVborder.isHidden = true
+                self.clearDone.isHidden = true
+                self.newObservTV.isHidden = true
+            })
+            
+        }
+    }
+    
+    func hideNewObservationView(){
+        newObservTV.text = ""
+        clearDone.isHidden = true
+        newObservTV.isHidden = true
+        TVborder.isHidden = true
+        clearDone.alpha = 0
+        newObservTV.alpha = 0
+        TVborder.alpha = 0
+        TVborder.layer.cornerRadius = 7.0
     }
 
     
