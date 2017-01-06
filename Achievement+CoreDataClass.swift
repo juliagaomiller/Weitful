@@ -43,11 +43,11 @@ public class Achievement: NSManagedObject {
         }
     }
     
-    convenience init(type: String, image: UIImage, title: String, detail: String, numOfDays: Int, intensityLevel: Int, context: NSManagedObjectContext){
-        let entity = NSEntityDescription.entity(forEntityName: "Observation", in: context)!
+    convenience init(type: String, image: NSData, title: String, detail: String, numOfDays: Int, intensityLevel: Int, context: NSManagedObjectContext){
+        let entity = NSEntityDescription.entity(forEntityName: "Achievement", in: context)!
         self.init(entity: entity, insertInto: context)
         self.date = NSDate()
-        self.image = UIImagePNGRepresentation(image) as NSData?
+        self.image = image
         self.numOfTimesAchievedInt = 0
         self.achieved = false
         self.type = type

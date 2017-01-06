@@ -30,7 +30,7 @@ struct InstructionDefaults {
     ]
 }
 
-let eatingAchievements: [(image: UIImage, name: String, description: String, numOfDays: Int, intensityLevel: Int)] =
+let eatingAchievements: [(image: UIImage, name: String, detail: String, numOfDays: Int, intensityLevel: Int)] =
     [
         (#imageLiteral(resourceName: "theRock") ,"THE ROCK", "3 days this week of +1 eating", 3, 1),
         (#imageLiteral(resourceName: "blackbelt") ,"BLACKBELT", "5 days this week of +1 eating", 5, 1),
@@ -42,7 +42,7 @@ let eatingAchievements: [(image: UIImage, name: String, description: String, num
 ]
 
 //have to make sure that "leader" has a special method
-let exercisingAchievements: [(image: UIImage, name: String, description: String, numOfDays: Int, intensityLevel: Int)] =
+let exercisingAchievements: [(image: UIImage, name: String, detail: String, numOfDays: Int, intensityLevel: Int)] =
     [
         (#imageLiteral(resourceName: "ex2") ,"MARATHONER", "3 days this week of +2 exercising", 3,2),
         (#imageLiteral(resourceName: "leader") ,"LEADER", "7 days this week of >0 exercising", 7, 1),

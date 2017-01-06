@@ -16,11 +16,13 @@ extension MainVC {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore  {
         } else {
+            firstLaunch = true
+            print("first launch")
             //First launch
-            createInstructionEntities()
-            loadAchievementsIntoCoreData()
+//            createInstructionEntities()
+//            loadAchievementsIntoCoreData()
             UserDefaults.standard.set(true, forKey: "launchedBefore")
-            segueToIntro()
+//            segueToIntro()
         }
     }
     
@@ -137,7 +139,6 @@ extension MainVC {
             if prevDayLogs[0].MMddyy == date.convertToString(format: "MMddyy") {
                 today = prevDayLogs[0]
                 prevDayLogs.removeFirst()
-                print("prevDayLogs.count: ", prevDayLogs.count)
             } else {
                 today = DayLog(context: context)
             }

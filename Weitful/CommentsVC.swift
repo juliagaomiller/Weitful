@@ -49,7 +49,6 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         if textView == observationTV {
             editingObservation = true
         }
-        //print(clearDone.isHidden)
     }
     
     

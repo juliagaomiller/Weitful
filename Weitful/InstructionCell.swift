@@ -19,7 +19,6 @@ class InstructionCell: UITableViewCell {
     func configureCell(eating: Eating){
         let stringNum = String(eating.rank)
         let imageString = "eat" + stringNum
-        print("imageString: ", imageString)
         displayImage.image = UIImage(named: imageString)
         textV.textColor = UIColor.white
         rankLbl.textColor = UIColor.white
@@ -35,7 +34,6 @@ class InstructionCell: UITableViewCell {
     func configureCell(exercising ex: Exercising){
         let stringNum = String(ex.rank)
         let imageString = "ex" + stringNum
-        print("imageString: ", imageString)
         displayImage.image = UIImage(named: imageString)
         textV.textColor = UIColor.black
         rankLbl.textColor = UIColor.black

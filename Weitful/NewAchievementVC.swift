@@ -22,6 +22,16 @@ class NewAchievementVC: UIViewController {
         setUp()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        whiteView.alpha = 0
+        whiteView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        UIView.animate(withDuration: 0.6, animations: {
+            self.whiteView.alpha = 1
+            self.whiteView.transform = CGAffineTransform.identity
+        })
+    }
+    
     func setUp(){
         let image = UIImage(data: achievement.image as! Data)
         imageView.image = image
@@ -33,5 +43,7 @@ class NewAchievementVC: UIViewController {
     @IBAction func done() {
         self.dismiss(animated: false, completion: nil)
     }
+    
+
     
 }

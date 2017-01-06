@@ -62,8 +62,10 @@ class InstructionsVC: UIViewController {
         var textColor: UIColor!
         if background == UIColor.black {
             textColor = UIColor.white
+            //header is white and question mark is black
         } else {
             textColor = UIColor.black
+            //header is black and question mark is white
         }
         revertBtn.setTitleColor(textColor, for: .normal)
         toggleBtn.setTitleColor(textColor, for: .normal)

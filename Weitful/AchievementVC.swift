@@ -27,8 +27,8 @@ class AchievementVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         tableView.delegate = self
         addSwipeDown()
         loggingStreakLbl.text = "\(loggingStreak!) continuous day(s) of logging."
-        eatingStreakLbl.text = "\(eatingStreak!) continuous day(s) of >= +1 exercise"
-        exercisingStreakLbl.text = "\(exercisingStreak!) continuous day(s) of <= +1 eating"
+        eatingStreakLbl.text = "\(eatingStreak!) continuous day(s) of decent eating"
+        exercisingStreakLbl.text = "\(exercisingStreak!) continuous day(s) of exercise"
     }
     
     func addSwipeDown(){

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1445,35 +1444,36 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AchievementCell" rowHeight="98" id="wxi-w9-NlL" customClass="AchievementCell" customModule="Weitful" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="98"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AchievementCell" rowHeight="90" id="wxi-w9-NlL" customClass="AchievementCell" customModule="Weitful" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wxi-w9-NlL" id="dOt-JV-tq8">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPIRIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYg-BY-Kr9">
-                                                    <rect key="frame" x="106" y="8" width="48" height="22.5"/>
+                                                    <rect key="frame" x="97" y="8" width="48" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="5 days this week of 0 eating " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-a4-wov">
-                                                    <rect key="frame" x="106" y="31" width="166" height="66"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text="5 days this week of 0 eating " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-a4-wov">
+                                                    <rect key="frame" x="97" y="31" width="170.5" height="44.5"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzV-Vq-d8B">
-                                                    <rect key="frame" x="287" y="37.5" width="10" height="22.5"/>
+                                                    <rect key="frame" x="282.5" y="26.5" width="14.5" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ex1" translatesAutoresizingMaskIntoConstraints="NO" id="11a-w6-KGv">
-                                                    <rect key="frame" x="-6" y="-6" width="110" height="110"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loveMagnet" translatesAutoresizingMaskIntoConstraints="NO" id="11a-w6-KGv">
+                                                    <rect key="frame" x="5" y="-6" width="90" height="90"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="11a-w6-KGv" secondAttribute="height" multiplier="1:1" id="bI6-2n-Md4"/>
+                                                        <constraint firstAttribute="height" constant="90" id="Xfs-GD-TH1"/>
+                                                        <constraint firstAttribute="width" constant="90" id="hLH-Lq-hzR"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -1486,7 +1486,7 @@
                                                 <constraint firstItem="pYg-BY-Kr9" firstAttribute="top" secondItem="dOt-JV-tq8" secondAttribute="topMargin" id="e0h-P4-vJI"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="vzV-Vq-d8B" secondAttribute="trailing" constant="15" id="eZ6-9G-seK"/>
                                                 <constraint firstItem="pYg-BY-Kr9" firstAttribute="leading" secondItem="11a-w6-KGv" secondAttribute="trailing" constant="2" id="iWl-Ol-bEg"/>
-                                                <constraint firstItem="11a-w6-KGv" firstAttribute="leading" secondItem="dOt-JV-tq8" secondAttribute="leading" constant="-6" id="mSb-nI-A8C"/>
+                                                <constraint firstItem="11a-w6-KGv" firstAttribute="leading" secondItem="dOt-JV-tq8" secondAttribute="leading" constant="5" id="mSb-nI-A8C"/>
                                                 <constraint firstItem="oLc-a4-wov" firstAttribute="leading" secondItem="11a-w6-KGv" secondAttribute="trailing" constant="2" id="oBt-Zy-qLL"/>
                                                 <constraint firstItem="vzV-Vq-d8B" firstAttribute="leading" secondItem="oLc-a4-wov" secondAttribute="trailing" constant="15" id="tRp-x5-55M"/>
                                             </constraints>
@@ -1500,7 +1500,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AchievementPlaceholderCell" id="BXv-SH-Jop" customClass="AchievementPlaceholderCell" customModule="Weitful" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="126" width="320" height="98"/>
+                                        <rect key="frame" x="0.0" y="118" width="320" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BXv-SH-Jop" id="t0B-Ce-er6">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
@@ -2102,8 +2102,8 @@
     <resources>
         <image name="doctor" width="252" height="252"/>
         <image name="downArrow" width="900" height="900"/>
-        <image name="ex1" width="288" height="288"/>
         <image name="leftArrow" width="900" height="900"/>
+        <image name="loveMagnet" width="180" height="180"/>
         <image name="munch" width="252" height="252"/>
         <image name="present" width="252" height="252"/>
         <image name="questionMark" width="72" height="72"/>

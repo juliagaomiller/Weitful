@@ -20,10 +20,8 @@ extension MainVC {
         array.append(today)
         array = array.sorted(by: { $0.date!.compare($1.date as! Date) == .orderedDescending })
         var i = 0
-        print("array count: \(array.count)")
         while i < array.count {
             if array[i].eating < 2 && array[i].eating != Int(noData) { //no data = -100
-                print("array[i].eating: ", array[i].eating)
                 eatingStreak += 1
             }
             if array[i].exercise > 0 {
@@ -38,13 +36,12 @@ extension MainVC {
                 //there is only one element in the array so the logging streak will be 1
                 daysPassed = 2
             }
+            if array[i].weightString != "- - lbs" {
+                loggingStreak = (daysPassed > 1) ? 1 : loggingStreak + 1
+            }
             
-            loggingStreak = (daysPassed > 1) ? 1 : loggingStreak + 1
             i += 1
         }
-        print("eating streak: \(eatingStreak), exercising streak: \(exercisingStreak), logging streak:  \(loggingStreak)")
-
-        
     }
     
     //viewwillappear
@@ -52,6 +49,7 @@ extension MainVC {
         compileWeekEatingAndExercisingData()
         calculateStreaks()
         //also need a special one for exercise 1-5 level for 7 days
+        print("achievementArray.count: ", achievementArray.count)
         for award in achievementArray{
             let array = (award.type == exercise) ? weekExercisingRatings : weekEatingRatings
             let days = award.numOfDays
@@ -63,6 +61,8 @@ extension MainVC {
                 }
                 if count == days {
                     award.achieved = true
+                    award.date = NSDate()
+                    award.numOfTimesAchievedInt += 1
                     segueToAchievementVC()
                 }
             }
@@ -80,10 +80,12 @@ extension MainVC {
     //check for first launch
     func loadAchievementsIntoCoreData(){
         for x in eatingAchievements {
-            _ = Achievement(type: eating, image: x.image, title: x.name, detail: x.description, numOfDays: x.numOfDays, intensityLevel: x.intensityLevel, context: context)
+            let image = UIImagePNGRepresentation(x.image) as NSData?
+            _ = Achievement(type: eating, image: image!, title: x.name, detail: x.detail, numOfDays: x.numOfDays, intensityLevel: x.intensityLevel, context: context)
         }
         for x in exercisingAchievements{
-            _ = Achievement(type: eating, image: x.image, title: x.name, detail: x.description, numOfDays: x.numOfDays, intensityLevel: x.intensityLevel, context: context)
+            let image = UIImagePNGRepresentation(x.image) as NSData?
+            _ = Achievement(type: exercise, image: image!, title: x.name, detail: x.detail, numOfDays: x.numOfDays, intensityLevel: x.intensityLevel, context: context)
         }
         delegate.saveContext()
     }
@@ -99,15 +101,6 @@ extension MainVC {
                 weekExercisingRatings.append(x.exercise)
             }
         }
-        
-        print("Verify that the ratings correlate with what is showing on the build.")
-        for x in weekEatingRatings {
-            print("eating: \(x)")
-        }
-        for x in weekExercisingRatings {
-            print("exercising: \(x)")
-        }
-    
     }
     
     func segueToAchievementPage(sender: Achievement){
@@ -156,9 +149,12 @@ class MainVC: UIViewController {
     var newLog: DayLog?
     var today: DayLog!
     var cellColors = [UIColor]()
+    
+    var firstLaunch = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkForFirstLaunch()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -181,12 +177,19 @@ class MainVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        if firstLaunch {
+            createInstructionEntities()
+            loadAchievementsIntoCoreData()
+        }
         setUp()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        checkForFirstLaunch()
+        super.viewDidAppear(true)
+        if firstLaunch {
+            firstLaunch = false
+            segueToIntro()
+        }
     }
     
     @IBAction func edit(){
@@ -208,6 +211,7 @@ class MainVC: UIViewController {
     }
     
     func setUp(){
+        print("running setUp method")
         tableView.delegate = self
         tableView.dataSource = self
         commentTV.layer.cornerRadius = 7.0
