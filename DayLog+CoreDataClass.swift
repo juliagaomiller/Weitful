@@ -8,11 +8,12 @@
 
 import Foundation
 import CoreData
+import UIKit
+
+let noData = Int32(-100)
 
 @objc(DayLog)
 public class DayLog: NSManagedObject {
-    
-    let noData = Int32(-100)
     
     var dateString: String {
         get {
@@ -38,6 +39,26 @@ public class DayLog: NSManagedObject {
         }
         set {
             int32eating = Int32(newValue)
+        }
+    }
+    
+    var exerciseImage: UIImage {
+        if int32exercise == noData {
+            return #imageLiteral(resourceName: "smallBlackQ")
+        }
+        else {
+            let string = "ex\(exercise)"
+            let image = UIImage(named: string)
+            return image!
+        }
+    }
+    
+    var eatingImage: UIImage {
+        if int32eating == noData {return #imageLiteral(resourceName: "smallWhiteQ")}
+        else {
+            let string = "eat\(eating)"
+            let image = UIImage(named: string)
+            return image!
         }
     }
     

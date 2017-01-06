@@ -13,7 +13,7 @@ class SwipeLeftAC: NSObject, UIViewControllerAnimatedTransitioning {
     var isPresenting = true
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        0.5
+        return 0.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -29,7 +29,7 @@ class SwipeLeftAC: NSObject, UIViewControllerAnimatedTransitioning {
         container.addSubview(toV)
         
         if isPresenting {
-            toV.transform = moveOffScreenLeft
+            toV.transform = moveOffscreenLeft
         } else {
             toV.transform = moveOffscreenRight
         }

@@ -23,6 +23,8 @@
 		196E18811E024AFF005C17BF /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E18801E024AFF005C17BF /* CommentsVC.swift */; };
 		1972AEF71E0E4113001B2A61 /* TipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972AEF61E0E4113001B2A61 /* TipVC.swift */; };
 		1972AEF91E0E41F7001B2A61 /* TipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972AEF81E0E41F7001B2A61 /* TipCell.swift */; };
+		199C95B11E1F09C700ED3FF3 /* Achievement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199C95AF1E1F09C700ED3FF3 /* Achievement+CoreDataClass.swift */; };
+		199C95B21E1F09C700ED3FF3 /* Achievement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199C95B01E1F09C700ED3FF3 /* Achievement+CoreDataProperties.swift */; };
 		19A3F1051DE81D7500BACDDC /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3F1041DE81D7500BACDDC /* NSDateExtension.swift */; };
 		19A78BB31E0828BD001131E3 /* OffScreenRightAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A78BB21E0828BC001131E3 /* OffScreenRightAC.swift */; };
 		19A78BB61E082B63001131E3 /* TransitionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A78BB51E082B63001131E3 /* TransitionExtensions.swift */; };
@@ -37,6 +39,7 @@
 		19D66FA21DF9F46C000EC885 /* Eating+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F9E1DF9F46C000EC885 /* Eating+CoreDataProperties.swift */; };
 		19D66FA31DF9F46C000EC885 /* Exercising+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66F9F1DF9F46C000EC885 /* Exercising+CoreDataClass.swift */; };
 		19D66FA41DF9F46C000EC885 /* Exercising+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D66FA01DF9F46C000EC885 /* Exercising+CoreDataProperties.swift */; };
+		19DF8B061E1BF29E00107EEA /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DF8B051E1BF29E00107EEA /* IntroVC.swift */; };
 		19DFB0FB1DFE1ED300CC2925 /* ObservationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DFB0FA1DFE1ED300CC2925 /* ObservationVC.swift */; };
 		19DFB0FF1DFE1EF400CC2925 /* ObservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DFB0FE1DFE1EF400CC2925 /* ObservationCell.swift */; };
 		19DFB1091DFF010E00CC2925 /* ObservationMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DFB1081DFF010E00CC2925 /* ObservationMethods.swift */; };
@@ -47,7 +50,12 @@
 		19E8D1DE1DE6B4DB00C2258A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1DD1DE6B4DB00C2258A /* MainVC.swift */; };
 		19E8D1E01DE6B4E800C2258A /* LogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1DF1DE6B4E800C2258A /* LogVC.swift */; };
 		19E8D1E41DE6B54B00C2258A /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D1E31DE6B54B00C2258A /* LogCell.swift */; };
+		19F0900E1E1DD015000982DE /* AchievementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F0900D1E1DD015000982DE /* AchievementVC.swift */; };
+		19F090101E1DD0CB000982DE /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F0900F1E1DD0CB000982DE /* AchievementCell.swift */; };
+		19F090121E1DD0E8000982DE /* AchievementPlaceholderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F090111E1DD0E8000982DE /* AchievementPlaceholderCell.swift */; };
+		19F090141E1DD113000982DE /* NewAchievementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F090131E1DD113000982DE /* NewAchievementVC.swift */; };
 		19F2A9751E0CCACE00C6A5BC /* SplitAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F2A9741E0CCACE00C6A5BC /* SplitAC.swift */; };
+		19FEF05A1E15EACD0030DBD5 /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FEF0591E15EACD0030DBD5 /* TutorialVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +75,8 @@
 		196E18801E024AFF005C17BF /* CommentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
 		1972AEF61E0E4113001B2A61 /* TipVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipVC.swift; sourceTree = "<group>"; };
 		1972AEF81E0E41F7001B2A61 /* TipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipCell.swift; path = ../TipCell.swift; sourceTree = "<group>"; };
+		199C95AF1E1F09C700ED3FF3 /* Achievement+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Achievement+CoreDataClass.swift"; path = "../Achievement+CoreDataClass.swift"; sourceTree = "<group>"; };
+		199C95B01E1F09C700ED3FF3 /* Achievement+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Achievement+CoreDataProperties.swift"; path = "../Achievement+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		19A3F1041DE81D7500BACDDC /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		19A78BB21E0828BC001131E3 /* OffScreenRightAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffScreenRightAC.swift; sourceTree = "<group>"; };
 		19A78BB51E082B63001131E3 /* TransitionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionExtensions.swift; sourceTree = "<group>"; };
@@ -81,6 +91,7 @@
 		19D66F9E1DF9F46C000EC885 /* Eating+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Eating+CoreDataProperties.swift"; path = "../Eating+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		19D66F9F1DF9F46C000EC885 /* Exercising+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Exercising+CoreDataClass.swift"; path = "../Exercising+CoreDataClass.swift"; sourceTree = "<group>"; };
 		19D66FA01DF9F46C000EC885 /* Exercising+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Exercising+CoreDataProperties.swift"; path = "../Exercising+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		19DF8B051E1BF29E00107EEA /* IntroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 		19DFB0FA1DFE1ED300CC2925 /* ObservationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationVC.swift; sourceTree = "<group>"; };
 		19DFB0FE1DFE1EF400CC2925 /* ObservationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationCell.swift; sourceTree = "<group>"; };
 		19DFB1081DFF010E00CC2925 /* ObservationMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationMethods.swift; sourceTree = "<group>"; };
@@ -93,7 +104,12 @@
 		19E8D1DD1DE6B4DB00C2258A /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		19E8D1DF1DE6B4E800C2258A /* LogVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogVC.swift; sourceTree = "<group>"; };
 		19E8D1E31DE6B54B00C2258A /* LogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
+		19F0900D1E1DD015000982DE /* AchievementVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementVC.swift; sourceTree = "<group>"; };
+		19F0900F1E1DD0CB000982DE /* AchievementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AchievementCell.swift; path = ../AchievementCell.swift; sourceTree = "<group>"; };
+		19F090111E1DD0E8000982DE /* AchievementPlaceholderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AchievementPlaceholderCell.swift; path = ../AchievementPlaceholderCell.swift; sourceTree = "<group>"; };
+		19F090131E1DD113000982DE /* NewAchievementVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAchievementVC.swift; sourceTree = "<group>"; };
 		19F2A9741E0CCACE00C6A5BC /* SplitAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitAC.swift; sourceTree = "<group>"; };
+		19FEF0591E15EACD0030DBD5 /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +149,7 @@
 		19D66FA51DF9F480000EC885 /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				199C95B01E1F09C700ED3FF3 /* Achievement+CoreDataProperties.swift */,
 				1913E9411E0349890051FF80 /* Observation+CoreDataProperties.swift */,
 				1913E93B1E030A590051FF80 /* ObservationComments+CoreDataProperties.swift */,
 				192CF3F31DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift */,
@@ -174,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				192CF3FA1DEF972900D5E2D5 /* Helper.swift */,
+				199C95AF1E1F09C700ED3FF3 /* Achievement+CoreDataClass.swift */,
 				1913E9401E0349890051FF80 /* Observation+CoreDataClass.swift */,
 				1913E93A1E030A590051FF80 /* ObservationComments+CoreDataClass.swift */,
 				192CF3F21DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift */,
@@ -191,6 +209,8 @@
 				19A78BB41E0828C3001131E3 /* Animator */,
 				19D30AF41E0777BE001EEB7F /* Main.storyboard */,
 				19ABAD9A1E084231001DDEE1 /* CustomButton.swift */,
+				19F0900F1E1DD0CB000982DE /* AchievementCell.swift */,
+				19F090111E1DD0E8000982DE /* AchievementPlaceholderCell.swift */,
 				1972AEF81E0E41F7001B2A61 /* TipCell.swift */,
 				19E8D1E31DE6B54B00C2258A /* LogCell.swift */,
 				196E187E1E024A9C005C17BF /* ObservationCommentCell.swift */,
@@ -207,6 +227,10 @@
 				196E18941E025CE0005C17BF /* Observations */,
 				19E8D1DD1DE6B4DB00C2258A /* MainVC.swift */,
 				192CF3F81DEF4CB200D5E2D5 /* MainMethods.swift */,
+				19F0900D1E1DD015000982DE /* AchievementVC.swift */,
+				19F090131E1DD113000982DE /* NewAchievementVC.swift */,
+				19DF8B051E1BF29E00107EEA /* IntroVC.swift */,
+				19FEF0591E15EACD0030DBD5 /* TutorialVC.swift */,
 				19E8D1DF1DE6B4E800C2258A /* LogVC.swift */,
 				192CF3F61DEF4CA900D5E2D5 /* LogMethods.swift */,
 				1972AEF61E0E4113001B2A61 /* TipVC.swift */,
@@ -255,7 +279,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Julia Miller";
 				TargetAttributes = {
 					19E8D1C41DE6A85A00C2258A = {
@@ -305,8 +329,10 @@
 				1913E93E1E030A590051FF80 /* ObservationComments+CoreDataClass.swift in Sources */,
 				19D66FA31DF9F46C000EC885 /* Exercising+CoreDataClass.swift in Sources */,
 				19ABAD9B1E084231001DDEE1 /* CustomButton.swift in Sources */,
+				199C95B21E1F09C700ED3FF3 /* Achievement+CoreDataProperties.swift in Sources */,
 				195DCC911E0EDCF4009B16F1 /* SwipeLeftAC.swift in Sources */,
 				19DFB1091DFF010E00CC2925 /* ObservationMethods.swift in Sources */,
+				19DF8B061E1BF29E00107EEA /* IntroVC.swift in Sources */,
 				1972AEF71E0E4113001B2A61 /* TipVC.swift in Sources */,
 				19A78BB61E082B63001131E3 /* TransitionExtensions.swift in Sources */,
 				1913E93F1E030A590051FF80 /* ObservationComments+CoreDataProperties.swift in Sources */,
@@ -314,12 +340,16 @@
 				19ABAD9D1E09A592001DDEE1 /* CommentsMethods.swift in Sources */,
 				1913E9421E0349890051FF80 /* Observation+CoreDataClass.swift in Sources */,
 				192CF3FB1DEF972900D5E2D5 /* Helper.swift in Sources */,
+				19F090101E1DD0CB000982DE /* AchievementCell.swift in Sources */,
+				19FEF05A1E15EACD0030DBD5 /* TutorialVC.swift in Sources */,
 				19D66FA11DF9F46C000EC885 /* Eating+CoreDataClass.swift in Sources */,
 				1906AFBF1DFA1755001356C3 /* InstructionTransition.swift in Sources */,
 				1913E9431E0349890051FF80 /* Observation+CoreDataProperties.swift in Sources */,
 				196E18811E024AFF005C17BF /* CommentsVC.swift in Sources */,
+				199C95B11E1F09C700ED3FF3 /* Achievement+CoreDataClass.swift in Sources */,
 				19E8D1D11DE6A85A00C2258A /* Weitful.xcdatamodeld in Sources */,
 				19D66F9C1DF9EDA4000EC885 /* StructDefaults.swift in Sources */,
+				19F090121E1DD0E8000982DE /* AchievementPlaceholderCell.swift in Sources */,
 				19A3F1051DE81D7500BACDDC /* NSDateExtension.swift in Sources */,
 				19F2A9751E0CCACE00C6A5BC /* SplitAC.swift in Sources */,
 				19A78BB31E0828BD001131E3 /* OffScreenRightAC.swift in Sources */,
@@ -327,6 +357,7 @@
 				196E187F1E024A9C005C17BF /* ObservationCommentCell.swift in Sources */,
 				19E8D1E01DE6B4E800C2258A /* LogVC.swift in Sources */,
 				19E8D1E41DE6B54B00C2258A /* LogCell.swift in Sources */,
+				19F090141E1DD113000982DE /* NewAchievementVC.swift in Sources */,
 				192CF3F41DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift in Sources */,
 				19DFB0FB1DFE1ED300CC2925 /* ObservationVC.swift in Sources */,
 				19DFB0FF1DFE1EF400CC2925 /* ObservationCell.swift in Sources */,
@@ -334,6 +365,7 @@
 				192CF3F51DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift in Sources */,
 				19E8D1DE1DE6B4DB00C2258A /* MainVC.swift in Sources */,
 				19D66F9A1DF9ED96000EC885 /* InstructionMethods.swift in Sources */,
+				19F0900E1E1DD015000982DE /* AchievementVC.swift in Sources */,
 				192CF3F91DEF4CB200D5E2D5 /* MainMethods.swift in Sources */,
 				19D66F981DF9ED8D000EC885 /* InstructionsVC.swift in Sources */,
 				19D66FA21DF9F46C000EC885 /* Eating+CoreDataProperties.swift in Sources */,
@@ -375,6 +407,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -424,6 +457,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

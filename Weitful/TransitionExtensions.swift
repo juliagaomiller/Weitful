@@ -41,7 +41,7 @@ extension MainVC: UIViewControllerTransitioningDelegate {
             splitAC.isDismissing = true
             return splitAC
         } else if dismissed.title == segueID.tipVC {
-            swipeLeftAC.isPresenting == false
+            swipeLeftAC.isPresenting = false
             return swipeLeftAC
         } else {
             return nil

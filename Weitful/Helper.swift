@@ -22,6 +22,12 @@ struct segueID {
     static let instructionsVC = "InstructionsVC"
     static let logVC = "LogVC"
     static let tipVC = "TipVC"
+    static let tutorialVC = "TutorialVC"
+    static let mainVC = "MainVC"
+    static let introVC = "IntroVC"
+    static let achievementVC = "AchievementVC"
+    static let newAchievementVC = "NewAchievementVC"
+    
 }
 
 struct Color {
@@ -38,6 +44,15 @@ struct Color {
 }
 
 class H {
+
+
+    static func takeScreenshot(view: UIView)->UIImage{
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
     static func calculateProgress(now: Double, before: Double)->String{
         //-100 is the noData variable in DayLog
         if now == -100 || before == -100 {

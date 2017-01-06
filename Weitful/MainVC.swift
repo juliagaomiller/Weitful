@@ -9,6 +9,112 @@
 import UIKit
 import CoreData
 
+//Achievements
+extension MainVC {
+    
+    func calculateStreaks(){
+        eatingStreak = 0
+        exercisingStreak = 0
+        loggingStreak = 0
+        var array = prevDayLogs
+        array.append(today)
+        array = array.sorted(by: { $0.date!.compare($1.date as! Date) == .orderedDescending })
+        var i = 0
+        print("array count: \(array.count)")
+        while i < array.count {
+            if array[i].eating < 2 && array[i].eating != Int(noData) { //no data = -100
+                print("array[i].eating: ", array[i].eating)
+                eatingStreak += 1
+            }
+            if array[i].exercise > 0 {
+                exercisingStreak += 1
+            }
+            var daysPassed: Int!
+            let date = array[i].date!
+            if i < array.count - 1 {
+                let otherDate = array[i+1].date!
+                daysPassed = abs(date.daysBetween(otherDate: otherDate))
+            } else {
+                //there is only one element in the array so the logging streak will be 1
+                daysPassed = 2
+            }
+            
+            loggingStreak = (daysPassed > 1) ? 1 : loggingStreak + 1
+            i += 1
+        }
+        print("eating streak: \(eatingStreak), exercising streak: \(exercisingStreak), logging streak:  \(loggingStreak)")
+
+        
+    }
+    
+    //viewwillappear
+    func checkIfAnyAchievementsHaveBeenReached(){
+        compileWeekEatingAndExercisingData()
+        calculateStreaks()
+        //also need a special one for exercise 1-5 level for 7 days
+        for award in achievementArray{
+            let array = (award.type == exercise) ? weekExercisingRatings : weekEatingRatings
+            let days = award.numOfDays
+            let level = award.intensityLevel
+            var count = 0
+            for rating in array {
+                if rating == level {
+                    count += 1
+                }
+                if count == days {
+                    award.achieved = true
+                    segueToAchievementVC()
+                }
+            }
+        }
+    }
+    
+    //viewdidload
+    func fetchAchievements(){
+        achievementArray.removeAll()
+        let request: NSFetchRequest<Achievement> = Achievement.fetchRequest()
+        request.predicate = NSPredicate(format: "achieved == %@", false as CVarArg)
+        do {achievementArray = try context.fetch(request)} catch {fatalError()}
+    }
+
+    //check for first launch
+    func loadAchievementsIntoCoreData(){
+        for x in eatingAchievements {
+            _ = Achievement(type: eating, image: x.image, title: x.name, detail: x.description, numOfDays: x.numOfDays, intensityLevel: x.intensityLevel, context: context)
+        }
+        for x in exercisingAchievements{
+            _ = Achievement(type: eating, image: x.image, title: x.name, detail: x.description, numOfDays: x.numOfDays, intensityLevel: x.intensityLevel, context: context)
+        }
+        delegate.saveContext()
+    }
+    
+    func compileWeekEatingAndExercisingData(){
+        weekEatingRatings.removeAll()
+        weekExercisingRatings.removeAll()
+        for x in prevDayLogs {
+            if checkIfSameWeek(now: today.date!, previous: x.date!) {
+                if x.eating == Int(noData){break}
+                if x.exercise == Int(noData){break}
+                weekEatingRatings.append(x.eating)
+                weekExercisingRatings.append(x.exercise)
+            }
+        }
+        
+        print("Verify that the ratings correlate with what is showing on the build.")
+        for x in weekEatingRatings {
+            print("eating: \(x)")
+        }
+        for x in weekExercisingRatings {
+            print("exercising: \(x)")
+        }
+    
+    }
+    
+    func segueToAchievementPage(sender: Achievement){
+        performSegue(withIdentifier: segueID.newAchievementVC, sender: sender)
+    }
+}
+
 let instructionsVCSegue = "InstructionsVCSegue"
 
 //UIViewControllerTransitioningDelegate
@@ -25,6 +131,10 @@ class MainVC: UIViewController {
     @IBOutlet weak var lastLogLbl: UILabel!
     @IBOutlet weak var commentTV: UITextView!
     @IBOutlet weak var whiteTV: UITextView!
+    @IBOutlet weak var numberStackView: UIStackView!
+    @IBOutlet weak var editBackStackView: UIStackView!
+    @IBOutlet weak var exerciseImage: UIImageView!
+    @IBOutlet weak var eatingImage: UIImageView!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,6 +144,13 @@ class MainVC: UIViewController {
     let splitAC = SplitAC()
     let swipeLeftAC = SwipeLeftAC()
     
+    var achievementArray = [Achievement]()
+    var weekEatingRatings = [Int]()
+    var weekExercisingRatings = [Int]()
+    var loggingStreak: Int = 0
+    var eatingStreak: Int = 0
+    var exercisingStreak: Int = 0
+    
     var prevDayLogs: [DayLog] = []
     var cellSelectedLog: DayLog?
     var newLog: DayLog?
@@ -42,7 +159,6 @@ class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkForFirstLaunch()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,6 +168,14 @@ class MainVC: UIViewController {
             let logVC = segue.destination as! LogVC
             //logVC.transitioningDelegate = self
             logVC.log = sender as! DayLog
+        } else if segue.identifier == segueID.newAchievementVC {
+            let vc = segue.destination as! NewAchievementVC
+            vc.achievement = sender as! Achievement!
+        } else if segue.identifier == segueID.achievementVC {
+            let vc = segue.destination as! AchievementVC
+            vc.exercisingStreak = self.exercisingStreak
+            vc.eatingStreak = self.eatingStreak
+            vc.loggingStreak = self.loggingStreak
         }
     }
     
@@ -60,9 +184,23 @@ class MainVC: UIViewController {
         setUp()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkForFirstLaunch()
+    }
+    
     @IBAction func edit(){
         guard let log = cellSelectedLog else {fatalError()}
         performSegue(withIdentifier: segueID.logVC, sender: log)
+    }
+    
+    @IBAction func questionMark(_ sender: Any) {
+        let screenshot = H.takeScreenshot(view: self.view)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: segueID.tutorialVC ) as! TutorialVC
+        vc.screenshot = screenshot
+        vc.VCTitle = segueID.mainVC
+        self.present(vc, animated: false, completion: nil)
     }
     
     @IBAction func back(){
@@ -74,8 +212,10 @@ class MainVC: UIViewController {
         tableView.dataSource = self
         commentTV.layer.cornerRadius = 7.0
         whiteTV.layer.cornerRadius = 7.0
-        addGestureRecognizers()
         fetchLogs()
+        fetchAchievements()
+        checkIfAnyAchievementsHaveBeenReached()
+        addGestureRecognizers()
         updateView()
     }
     
@@ -86,8 +226,9 @@ class MainVC: UIViewController {
         exerciseLbl.text = today.exerciseString
         eatingLbl.text = today.eatingString
         commentTV.text = today.commentary
+        
         if prevDayLogs.count != 0 {
-           progressLbl.text = H.calculateProgress(now: today.weight, before: prevDayLogs[0].weight)
+            progressLbl.text = H.calculateProgress(now: today.weight, before: prevDayLogs[0].weight)
             calculateLastLog()
         } else {progressLbl.text = ""}
         
@@ -156,6 +297,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
             cellSelectedLog = prevDayLogs[i]
             whiteTV.isHidden = false
             whiteTV.text = cellSelectedLog!.commentary
+            editBackStackView.isHidden = false
             editBtn.isHidden = false
             backBtn.isHidden = false
         } else if cell?.reuseIdentifier == "AddDate"{
@@ -171,20 +313,5 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: segueID.logVC, sender: newLog)
         }
     }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let log = prevDayLogs[indexPath.row]
-            prevDayLogs.remove(at: indexPath.row)
-            context.delete(log)
-            delegate.saveContext()
-            tableView.reloadData()
-            //just in case prevDayLog[0] was deleted
-            updateView()
-        }
-    }
+
 }

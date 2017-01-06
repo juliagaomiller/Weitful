@@ -20,16 +20,19 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBOutlet weak var thumbsDownBtn: UIButton!
     @IBOutlet weak var observationTV: UITextView!
     
+    
     let context = delegate.persistentContainer.viewContext
     let smallThumbInsets = UIEdgeInsetsMake(14, 60, 14, 60)
     let defaultThumbInset = UIEdgeInsetsMake(0,0,0,0)
     
     var observation: Observation!
     var observationComments = [ObservationComments]()
+    var editingObservation = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         observationTV.text = observation.text
+        observationTV.delegate = self
         setUpTableView()
         hideNewCommentView()
         addSwipeBack()
@@ -41,9 +44,23 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.isHidden {
-            clearDone.isHidden = false
+        clearDone.isHidden = false
+        clearDone.alpha = 1
+        if textView == observationTV {
+            editingObservation = true
         }
+        //print(clearDone.isHidden)
+    }
+    
+    
+    
+    @IBAction func questionMark(_ sender: Any) {
+        let screenshot = H.takeScreenshot(view: self.view)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: segueID.tutorialVC ) as! TutorialVC
+        vc.screenshot = screenshot
+        vc.VCTitle = segueID.commentsVC
+        self.present(vc, animated: false, completion: nil)
     }
     
     @IBAction func thumbsUp(){
@@ -65,10 +82,10 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     @IBAction func done(){
-        if textView.isHidden{
+        if editingObservation {
             observationTV.resignFirstResponder()
             if observationTV.text != "" {
-                observation.comments = observationTV.text
+                observation.text = observationTV.text
                 delegate.saveContext()
                 clearDone.isHidden = true
             }
@@ -76,9 +93,9 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             let bool = checkIfIsPositive()
             let _ = ObservationComments(text: textView.text, observation: observation, isPositive: bool, context: context)
             delegate.saveContext()
+            animateNewCommentView(isActivated: false)
+            updateObservationComments()
         }
-        animateNewCommentView(isActivated: false)
-        updateObservationComments()
     }
     
     func checkIfIsPositive()->Bool {

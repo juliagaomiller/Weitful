@@ -42,6 +42,15 @@ class InstructionsVC: UIViewController {
         tableView.reloadData()
     }
     
+    @IBAction func questionMark(_ sender: Any) {
+        let screenshot = H.takeScreenshot(view: self.view)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: segueID.tutorialVC ) as! TutorialVC
+        vc.screenshot = screenshot
+        vc.VCTitle = segueID.instructionsVC
+        self.present(vc, animated: false, completion: nil)
+    }
+    
     @IBAction func back (){
         dismissVC()
     }

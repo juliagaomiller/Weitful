@@ -8,6 +8,17 @@
 
 import UIKit
 
+func checkIfSameWeek(now: NSDate, previous: NSDate)->Bool{
+    let previousInt = previous.returnDayOfWeekInt()
+    let todayInt = now.returnDayOfWeekInt()
+    if previousInt > todayInt {return false}
+    let elapsed = abs(now.daysBetween(otherDate: previous))
+    if abs(elapsed) > 6 {return false}
+    else {
+        return true
+    }
+}
+
 class LogCell: UITableViewCell {
 
     @IBOutlet weak var dateLbl: UILabel!
@@ -15,8 +26,6 @@ class LogCell: UITableViewCell {
     @IBOutlet weak var progressLbl: UILabel!
     @IBOutlet weak var exerciseLbl: UILabel!
     @IBOutlet weak var eatingLbl: UILabel!
-    
-
     
     func configureCell(log: DayLog, previous: DayLog?, prevCellColor: UIColor?){
         let weekday = log.date!.returnDayOfWeek(abbreviated: true)
@@ -41,19 +50,18 @@ class LogCell: UITableViewCell {
                 self.backgroundColor = returnWeekColor(now: p.date!, previous: log.date!, color: prevCellColor!)
             }
         }
-        
     }
     
-    func checkIfSameWeek(now: NSDate, previous: NSDate)->Bool{
-        let previousInt = previous.returnDayOfWeekInt()
-        let todayInt = now.returnDayOfWeekInt()
-        if previousInt > todayInt {return false}
-        let elapsed = abs(now.daysBetween(otherDate: previous))
-        if abs(elapsed) > 6 {return false}
-        else {
-            return true
-        }
-    }
+//    func checkIfSameWeek(now: NSDate, previous: NSDate)->Bool{
+//        let previousInt = previous.returnDayOfWeekInt()
+//        let todayInt = now.returnDayOfWeekInt()
+//        if previousInt > todayInt {return false}
+//        let elapsed = abs(now.daysBetween(otherDate: previous))
+//        if abs(elapsed) > 6 {return false}
+//        else {
+//            return true
+//        }
+//    }
     
     func returnWeekColor(now: NSDate, previous: NSDate, color: UIColor)->UIColor{
         if checkIfSameWeek(now: now, previous: previous){

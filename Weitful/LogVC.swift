@@ -18,6 +18,7 @@ class LogVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var commentTV: UITextView!
     @IBOutlet weak var commentsStack: UIStackView!
     @IBOutlet weak var dateBackground: UIView!
+    @IBOutlet weak var commentPlaceholderLbl: UILabel!
     
     @IBOutlet var keypad: Array<UIButton>?
     
@@ -28,6 +29,15 @@ class LogVC: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+    }
+    
+    @IBAction func questionMark(_ sender: Any) {
+        let screenshot = H.takeScreenshot(view: self.view)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: segueID.tutorialVC ) as! TutorialVC
+        vc.screenshot = screenshot
+        vc.VCTitle = segueID.logVC
+        self.present(vc, animated: false, completion: nil)
     }
     
     @IBAction func adjustExercise(sender: UIButton!){
@@ -96,10 +106,14 @@ class LogVC: UIViewController, UITextViewDelegate {
         exerciseLbl.text = log.exerciseString
         eatingLbl.text = log.eatingString
         weightLbl.text = log.weightString
+        if commentTV.text != "" {
+            commentPlaceholderLbl.isHidden = true
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         commentsStack.isHidden = false
+        commentPlaceholderLbl.isHidden = true
     }
     
 }

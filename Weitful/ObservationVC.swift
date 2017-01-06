@@ -42,6 +42,15 @@ class ObservationVC: UIViewController {
         }
     }
     
+    @IBAction func questionMark(_ sender: Any) {
+        let screenshot = H.takeScreenshot(view: self.view)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: segueID.tutorialVC ) as! TutorialVC
+        vc.screenshot = screenshot
+        vc.VCTitle = segueID.observationVC
+        self.present(vc, animated: false, completion: nil)
+    }
+    
     @IBAction func clear(){
         newObservTV.text = ""
     }
@@ -81,28 +90,6 @@ extension ObservationVC: UITableViewDelegate, UITableViewDataSource {
     func updateTableView() {
         self.tableView.reloadData()
     }
-    func up(sender: UIButton){
-        let index = sender.tag
-        let o = observations[index]
-        if o.rank > 0 {
-            let before = observations[index - 1]
-            before.rank += 1
-            o.rank -= 1
-            reloadTableViewData()
-        }
-    }
-    
-    func down(sender: UIButton){
-        let index = sender.tag
-        let o = observations[index]
-        if o.rank < observations.count - 1 {
-            let after = observations[index + 1]
-            after.rank -= 1
-           o.rank += 1
-            reloadTableViewData()
-        }
-        
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return observations.count
@@ -113,10 +100,6 @@ extension ObservationVC: UITableViewDelegate, UITableViewDataSource {
         let comments = retrieveComments(observation: observation)
         let cell = tableView.dequeueReusableCell(withIdentifier: "ObservationCell") as! ObservationCell
         cell.configure(observation: observation, comments: comments)
-        cell.upBtn.addTarget(self, action: #selector(up(sender:)), for: .touchUpInside)
-        cell.downBtn.addTarget(self, action: #selector(down(sender:)), for: .touchUpInside)
-        cell.upBtn.tag = indexPath.row
-        cell.downBtn.tag = indexPath.row
         cell.selectionStyle = .default
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.white

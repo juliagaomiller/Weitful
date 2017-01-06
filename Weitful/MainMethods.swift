@@ -12,18 +12,49 @@ import CoreData
 
 extension MainVC {
     
+    func checkForFirstLaunch(){
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+        } else {
+            //First launch
+            createInstructionEntities()
+            loadAchievementsIntoCoreData()
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            segueToIntro()
+        }
+    }
+    
+    func segueToIntro(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: segueID.introVC) as! IntroVC
+        vc.backgroundImage = H.takeScreenshot(view: self.view)
+        self.present(vc, animated: false, completion: nil)
+    }
+    
     func addGestureRecognizers(){
         addTapRecognizerToView()
         addSwipeDownGestureRecognizer()
         addSwipeLeftGestureRecognizer() //goes to ObservationVC
         addSwipeRightGestureRecognizer()
+        addSwipeUpGestureRecognizer()
+    }
+    
+    func addSwipeUpGestureRecognizer(){
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(segueToAchievementVC))
+        swipe.direction = .up
+        self.view.addGestureRecognizer(swipe)
+    }
+    
+    func segueToAchievementVC(){
+        performSegue(withIdentifier: segueID.achievementVC, sender: achievementArray)
     }
     
     func addSwipeRightGestureRecognizer(){
-        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(performSegue(withIdentifier:sender:)))
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(segueToTipVC))
+        swipe.direction = .right
+        self.view.addGestureRecognizer(swipe)
     }
     
-    func handleSwipeRight(){
+    func segueToTipVC(){
         performSegue(withIdentifier: segueID.tipVC, sender: nil)
     }
     
@@ -31,6 +62,12 @@ extension MainVC {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(segueToInstructionVC))
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
+    }
+    
+    func addSwipeLeftGestureRecognizer(){
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(segueToObservationVC))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
     }
     
     func calculateLastLog(){
@@ -45,29 +82,12 @@ extension MainVC {
         }
     }
     
-    func addSwipeLeftGestureRecognizer(){
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(segueToObservationVC))
-        swipeLeft.direction = .left
-        self.view.addGestureRecognizer(swipeLeft)
-    }
-    
     func segueToObservationVC(){
         performSegue(withIdentifier: segueID.observationVC, sender: self)
     }
     
     func segueToInstructionVC(){
         performSegue(withIdentifier: segueID.instructionsVC, sender: self)
-    }
-    
-    func checkForFirstLaunch(){
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore  {
-            //"Not first launch."
-        } else {
-            //"First launch, setting UserDefault."
-            createInstructionEntities()
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-        }
     }
     
     func createInstructionEntities(){
@@ -96,6 +116,7 @@ extension MainVC {
     }
     
     func hideCellInfo(){
+        editBackStackView.isHidden = true
         editBtn.isHidden = true
         backBtn.isHidden = true
         whiteTV.isHidden = true
@@ -116,6 +137,7 @@ extension MainVC {
             if prevDayLogs[0].MMddyy == date.convertToString(format: "MMddyy") {
                 today = prevDayLogs[0]
                 prevDayLogs.removeFirst()
+                print("prevDayLogs.count: ", prevDayLogs.count)
             } else {
                 today = DayLog(context: context)
             }

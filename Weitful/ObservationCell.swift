@@ -22,8 +22,6 @@ class ObservationCell: UITableViewCell {
     @IBOutlet weak var positiveLabel: UILabel!
     @IBOutlet weak var negativeLabel: UILabel!
     @IBOutlet weak var thumbBtn: UIButton!
-    @IBOutlet weak var upBtn: UIButton!
-    @IBOutlet weak var downBtn: UIButton!
     
     var observation: Observation!
     
@@ -43,8 +41,6 @@ class ObservationCell: UITableViewCell {
         checkComments(comments: comments)
         textView.text = x.text
         backgroundColor = Color.extraLightGrey
-        upBtn.alpha = 0.5
-        downBtn.alpha = 0.5
 
     }
     

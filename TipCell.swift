@@ -10,12 +10,11 @@ import UIKit
 
 class TipCell: UITableViewCell {
     
-    @IBOutlet weak var dayLbl: UILabel!
     @IBOutlet weak var tipLbl: UILabel!
     
-    func configureCell(dictionary d: [Int:String]){
-        dayLbl.text = "Day \(String(d.0))"
-        tipLbl.text = d.1
+    func configureCell(num: Int, text: String){
+        let beginning = "Day \(String(num))\n "
+        tipLbl.text = beginning + text
     }
     
 }
