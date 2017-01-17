@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import CoreData
 
+let tipOfDay = "tipOfDay"
+
 extension MainVC {
     
     func checkForFirstLaunch(){
@@ -18,11 +20,8 @@ extension MainVC {
         } else {
             firstLaunch = true
             print("first launch")
-            //First launch
-//            createInstructionEntities()
-//            loadAchievementsIntoCoreData()
             UserDefaults.standard.set(true, forKey: "launchedBefore")
-//            segueToIntro()
+            UserDefaults.standard.set(0, forKey: tipOfDay)
         }
     }
     
@@ -47,7 +46,7 @@ extension MainVC {
     }
     
     func segueToAchievementVC(){
-        performSegue(withIdentifier: segueID.achievementVC, sender: achievementArray)
+        performSegue(withIdentifier: segueID.achievementVC, sender: achievedArray)
     }
     
     func addSwipeRightGestureRecognizer(){
@@ -92,6 +91,18 @@ extension MainVC {
         performSegue(withIdentifier: segueID.instructionsVC, sender: self)
     }
     
+    func createSampleObservationsAndComments(){
+        let one = Observation(text: "When I eat two eggs in the morning, I'm not hungry till noon (Sample. Swipe left to delete).", rank: 1, context: context)
+        let two = Observation(text: "After I jog I have a smaller appetite (Sample).", rank: 1, context: context)
+        let _ = ObservationComments(text: "Was not hungry till lunch today (Sample).", observation: one, isPositive: true, context: context)
+        let _ = ObservationComments(text: "Yup (Sample).", observation: one, isPositive: true, context: context)
+        let _ = ObservationComments(text: "Yup (Sample).", observation: two, isPositive: true, context: context)
+        let _ = ObservationComments(text: "Appetite is a lot less (Sample).", observation: two, isPositive: true, context: context)
+        let _ = ObservationComments(text: "Was still hungry after I jogged. Haven't had lunch yet (Sample).", observation: two, isPositive: false, context: context)
+        delegate.saveContext()
+    
+    }
+    
     func createInstructionEntities(){
         let eatingArrayOfDict = InstructionDefaults().eating
         for eating in eatingArrayOfDict {
@@ -133,18 +144,43 @@ extension MainVC {
             prevDayLogs.append(today)
         } else {
             prevDayLogs.sort(by: { $0.date!.compare($1.date as! Date) == .orderedDescending })
-            
             //Check if we have already logged weight today
             let date = NSDate()
             if prevDayLogs[0].MMddyy == date.convertToString(format: "MMddyy") {
+                //already logged today
                 today = prevDayLogs[0]
                 prevDayLogs.removeFirst()
+                if prevDayLogs.count == 0 {
+
+                    let string = UserDefaults.standard.string(forKey: "setTipOfDay")
+                    if string == nil{
+                        UserDefaults.standard.set("allSet", forKey: "setTipOfDay")
+                        addTipOfDay()
+                    }
+                }
             } else {
                 today = DayLog(context: context)
+                if !firstLaunch {
+                    addTipOfDayBool = true
+                }
+                
             }
         }
         delegate.saveContext()
         tableView.reloadData()
+    }
+    
+    func addTipOfDay(){
+        let index = UserDefaults.standard.integer(forKey: tipOfDay)
+        if index < tipDefaults.count {
+            let tip = tipDefaults[index]
+            UserDefaults.standard.set((index + 1), forKey: tipOfDay)
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: segueID.dayTipVC) as! DayTipVC
+            vc.background = H.takeScreenshot(view: self.view)
+            vc.tipImage = tip.image
+            vc.tipText = tip.text
+            self.present(vc, animated: false, completion: nil)
+        }
     }
     
 }

@@ -25,6 +25,15 @@ public class Achievement: NSManagedObject {
         }
     }
     
+//    var achievedThisWeek: Bool {
+//        get {
+//            return Bool(achieved!)
+//        }
+//        set {
+//            achieved = newValue as NSNumber?
+//        }
+//    }
+    
     var numOfDays: Int {
         get {
             return Int(int32numOfDays)

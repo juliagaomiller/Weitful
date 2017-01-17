@@ -22,11 +22,27 @@ extension NSDate {
         return day
     }
     
+    func returnDateString()->String{
+        let df = DateFormatter()
+        df.dateFormat = "MM/dd"
+        let string = df.string(from: self as Date)
+        return string
+    }
+    
     func returnDayOfWeekInt()->Int{
         //1 is a monday, 7 is a sunday
         let cal = Calendar.current
-        let index = cal.component(.weekday, from: self as Date)
-        return index-1
+        var index = cal.component(.weekday, from: self as Date)
+        //Sunday becomes last day of week
+        if index == 1 {index = 7}
+        else {index -= 1}
+        return index
+    }
+    
+    func returnWeekOfMonth()->Int{
+        let cal = Calendar.current
+        let num = cal.component(.weekOfMonth, from: self as Date)
+        return num
     }
     
     func returnDayOfWeek(abbreviated: Bool)->String {
@@ -36,6 +52,19 @@ extension NSDate {
         let index = cal.component(.weekday, from: self as Date)
         if abbreviated {return weekdaysAbr[index-1]}
         else {return weekdays[index-1]}
+    }
+    
+    func returnDayNumber()->Int{
+        let cal = Calendar.current
+        let num = cal.component(.day, from: self as Date)
+        return num
+    }
+    
+    func returnMonthName()->String{
+        let df = DateFormatter()
+        df.dateFormat = "MMMM"
+        let month = df.string(from: self as Date)
+        return month
     }
     
     var dayBefore:NSDate {

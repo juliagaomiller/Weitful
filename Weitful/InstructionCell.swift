@@ -20,29 +20,22 @@ class InstructionCell: UITableViewCell {
         let stringNum = String(eating.rank)
         let imageString = "eat" + stringNum
         displayImage.image = UIImage(named: imageString)
-        textV.textColor = UIColor.white
-        rankLbl.textColor = UIColor.white
+        //        textV.textColor = UIColor.white
+        //        rankLbl.textColor = UIColor.white
         rankLbl.text = stringNum
-        if eating.userText == nil {
-            textV.text = eating.defaultText!
-        } else {
-            textV.text = eating.userText!
-        }
-        backgroundColor = UIColor.black
+        
+        textV.text = eating.defaultText!
+        //        backgroundColor = UIColor.black
     }
     
     func configureCell(exercising ex: Exercising){
         let stringNum = String(ex.rank)
         let imageString = "ex" + stringNum
         displayImage.image = UIImage(named: imageString)
-        textV.textColor = UIColor.black
-        rankLbl.textColor = UIColor.black
+        //        textV.textColor = UIColor.black
+        //        rankLbl.textColor = UIColor.black
         rankLbl.text = String(ex.rank)
-        if ex.userText == nil {
-            textV.text = ex.defaultText
-        } else {
-            textV.text = ex.userText!
-        }
-        backgroundColor = UIColor.white
+        textV.text = ex.defaultText
+        //        backgroundColor = UIColor.white
     }
 }

@@ -14,8 +14,10 @@ class NewAchievementVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var discriptionLbl: UILabel!
+    @IBOutlet weak var achievementImageView: UIImageView!
     
     var achievement: Achievement!
+    var backgroundImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +35,19 @@ class NewAchievementVC: UIViewController {
     }
     
     func setUp(){
+        imageView.image = backgroundImage
         let image = UIImage(data: achievement.image as! Data)
-        imageView.image = image
+        achievementImageView.image = image
         titleLbl.text = achievement.title
         discriptionLbl.text = achievement.detail
 
     }
     
     @IBAction func done() {
+        UIView.animate(withDuration: 0.6, animations: {
+            self.whiteView.alpha = 0
+            self.whiteView.transform = CGAffineTransform.identity
+        })
         self.dismiss(animated: false, completion: nil)
     }
     

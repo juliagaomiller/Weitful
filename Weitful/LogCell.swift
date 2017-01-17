@@ -8,12 +8,15 @@
 
 import UIKit
 
-func checkIfSameWeek(now: NSDate, previous: NSDate)->Bool{
-    let previousInt = previous.returnDayOfWeekInt()
+func checkIfSameWeek(now: NSDate, dayAfter: NSDate)->Bool{
+    let dayAfterInt = dayAfter.returnDayOfWeekInt()
     let todayInt = now.returnDayOfWeekInt()
-    if previousInt > todayInt {return false}
-    let elapsed = abs(now.daysBetween(otherDate: previous))
+    let elapsed = abs(now.daysBetween(otherDate: dayAfter))
+    //more than a week has elapsed
     if abs(elapsed) > 6 {return false}
+    //e.g. if
+    if dayAfterInt < todayInt {
+        return false}
     else {
         return true
     }
@@ -27,52 +30,38 @@ class LogCell: UITableViewCell {
     @IBOutlet weak var exerciseLbl: UILabel!
     @IBOutlet weak var eatingLbl: UILabel!
     
-    func configureCell(log: DayLog, previous: DayLog?, prevCellColor: UIColor?){
+    func configureCell(log: DayLog, dayAfter: DayLog?, dayBefore: DayLog?, prevCellColor: UIColor?){
         let weekday = log.date!.returnDayOfWeek(abbreviated: true)
         dateLbl.text = weekday + " " + log.MMdd
         weightLbl.text = log.weightString
         exerciseLbl.text = log.exerciseStringWithPlusSign
         eatingLbl.text = log.eatingStringWithPlusSign
         progressLbl.text = ""
-        if prevCellColor == nil || previous == nil {
-            self.backgroundColor = Color.mediumCellColor
+        if prevCellColor == nil {
+            //we are on the first cell
+            self.backgroundColor = Color.mediumCellColor }
+        else {
+            self.backgroundColor = returnWeekColor(now: log.date!, dayAfter: dayAfter!.date!, color: prevCellColor!)
         }
-        if let p = previous {
-            let elapsed = log.date!.daysBetween(otherDate: p.date!)
-            if elapsed < 0 {
-                progressLbl.text = H.calculateProgress(now: log.weight, before: p.weight)
-                if prevCellColor == nil {
-                } else {
-                    self.backgroundColor = returnWeekColor(now: log.date!, previous: p.date!, color: prevCellColor!)
-                }
-            } else {
-                //if "previous" means the day AFTER log, then that means that we are on the last table view cell
-                self.backgroundColor = returnWeekColor(now: p.date!, previous: log.date!, color: prevCellColor!)
-            }
+        if dayBefore != nil {
+            progressLbl.text = H.calculateProgress(now: log.weight, before: dayBefore!.weight)
         }
     }
     
-//    func checkIfSameWeek(now: NSDate, previous: NSDate)->Bool{
-//        let previousInt = previous.returnDayOfWeekInt()
-//        let todayInt = now.returnDayOfWeekInt()
-//        if previousInt > todayInt {return false}
-//        let elapsed = abs(now.daysBetween(otherDate: previous))
-//        if abs(elapsed) > 6 {return false}
-//        else {
-//            return true
-//        }
-//    }
     
-    func returnWeekColor(now: NSDate, previous: NSDate, color: UIColor)->UIColor{
-        if checkIfSameWeek(now: now, previous: previous){
+    func returnWeekColor(now: NSDate, dayAfter: NSDate, color: UIColor)->UIColor{
+        if checkIfSameWeek(now: now, dayAfter: dayAfter){
             return color
-        } else {return returnOppositeCellBackgroundColor(color: color)}
+        } else {
+            return returnOppositeCellBackgroundColor(color: color)}
     }
     
     func returnOppositeCellBackgroundColor(color: UIColor)-> UIColor{
         if color == Color.darkCellColor {
             return Color.mediumCellColor
-        } else { return Color.darkCellColor }
+        } else {
+            
+            return Color.darkCellColor }
     }
 
 }

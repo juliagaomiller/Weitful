@@ -19,16 +19,19 @@
 		192CF3F91DEF4CB200D5E2D5 /* MainMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3F81DEF4CB200D5E2D5 /* MainMethods.swift */; };
 		192CF3FB1DEF972900D5E2D5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CF3FA1DEF972900D5E2D5 /* Helper.swift */; };
 		195DCC911E0EDCF4009B16F1 /* SwipeLeftAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195DCC901E0EDCF4009B16F1 /* SwipeLeftAC.swift */; };
+		196953971E255EB300A20D61 /* DayTipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196953961E255EB300A20D61 /* DayTipVC.swift */; };
 		196E187F1E024A9C005C17BF /* ObservationCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E187E1E024A9C005C17BF /* ObservationCommentCell.swift */; };
 		196E18811E024AFF005C17BF /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E18801E024AFF005C17BF /* CommentsVC.swift */; };
 		1972AEF71E0E4113001B2A61 /* TipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972AEF61E0E4113001B2A61 /* TipVC.swift */; };
 		1972AEF91E0E41F7001B2A61 /* TipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972AEF81E0E41F7001B2A61 /* TipCell.swift */; };
-		199C95B11E1F09C700ED3FF3 /* Achievement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199C95AF1E1F09C700ED3FF3 /* Achievement+CoreDataClass.swift */; };
-		199C95B21E1F09C700ED3FF3 /* Achievement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199C95B01E1F09C700ED3FF3 /* Achievement+CoreDataProperties.swift */; };
+		199F69BE1E2347DD00F79A23 /* Achievement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F69BC1E2347DD00F79A23 /* Achievement+CoreDataClass.swift */; };
+		199F69BF1E2347DD00F79A23 /* Achievement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F69BD1E2347DD00F79A23 /* Achievement+CoreDataProperties.swift */; };
 		19A3F1051DE81D7500BACDDC /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3F1041DE81D7500BACDDC /* NSDateExtension.swift */; };
 		19A78BB31E0828BD001131E3 /* OffScreenRightAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A78BB21E0828BC001131E3 /* OffScreenRightAC.swift */; };
 		19A78BB61E082B63001131E3 /* TransitionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A78BB51E082B63001131E3 /* TransitionExtensions.swift */; };
 		19A78BB81E0831E1001131E3 /* SwipeDownAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A78BB71E0831E1001131E3 /* SwipeDownAC.swift */; };
+		19AB6DE51E28092400F0F146 /* StatisticVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AB6DE41E28092400F0F146 /* StatisticVC.swift */; };
+		19AB6DE71E28099200F0F146 /* StatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AB6DE61E28099200F0F146 /* StatisticCell.swift */; };
 		19ABAD9B1E084231001DDEE1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABAD9A1E084231001DDEE1 /* CustomButton.swift */; };
 		19ABAD9D1E09A592001DDEE1 /* CommentsMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABAD9C1E09A592001DDEE1 /* CommentsMethods.swift */; };
 		19D30AF51E0777BE001EEB7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D30AF41E0777BE001EEB7F /* Main.storyboard */; };
@@ -71,16 +74,19 @@
 		192CF3F81DEF4CB200D5E2D5 /* MainMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMethods.swift; sourceTree = "<group>"; };
 		192CF3FA1DEF972900D5E2D5 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		195DCC901E0EDCF4009B16F1 /* SwipeLeftAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeLeftAC.swift; sourceTree = "<group>"; };
+		196953961E255EB300A20D61 /* DayTipVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTipVC.swift; sourceTree = "<group>"; };
 		196E187E1E024A9C005C17BF /* ObservationCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationCommentCell.swift; sourceTree = "<group>"; };
 		196E18801E024AFF005C17BF /* CommentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
 		1972AEF61E0E4113001B2A61 /* TipVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipVC.swift; sourceTree = "<group>"; };
 		1972AEF81E0E41F7001B2A61 /* TipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipCell.swift; path = ../TipCell.swift; sourceTree = "<group>"; };
-		199C95AF1E1F09C700ED3FF3 /* Achievement+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Achievement+CoreDataClass.swift"; path = "../Achievement+CoreDataClass.swift"; sourceTree = "<group>"; };
-		199C95B01E1F09C700ED3FF3 /* Achievement+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Achievement+CoreDataProperties.swift"; path = "../Achievement+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		199F69BC1E2347DD00F79A23 /* Achievement+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Achievement+CoreDataClass.swift"; path = "../Achievement+CoreDataClass.swift"; sourceTree = "<group>"; };
+		199F69BD1E2347DD00F79A23 /* Achievement+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Achievement+CoreDataProperties.swift"; path = "../Achievement+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		19A3F1041DE81D7500BACDDC /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		19A78BB21E0828BC001131E3 /* OffScreenRightAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffScreenRightAC.swift; sourceTree = "<group>"; };
 		19A78BB51E082B63001131E3 /* TransitionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionExtensions.swift; sourceTree = "<group>"; };
 		19A78BB71E0831E1001131E3 /* SwipeDownAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeDownAC.swift; sourceTree = "<group>"; };
+		19AB6DE41E28092400F0F146 /* StatisticVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticVC.swift; sourceTree = "<group>"; };
+		19AB6DE61E28099200F0F146 /* StatisticCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticCell.swift; sourceTree = "<group>"; };
 		19ABAD9A1E084231001DDEE1 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		19ABAD9C1E09A592001DDEE1 /* CommentsMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsMethods.swift; sourceTree = "<group>"; };
 		19D30AF41E0777BE001EEB7F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -137,6 +143,7 @@
 		19A78BB41E0828C3001131E3 /* Animator */ = {
 			isa = PBXGroup;
 			children = (
+				1906AFBE1DFA1755001356C3 /* InstructionTransition.swift */,
 				19A78BB21E0828BC001131E3 /* OffScreenRightAC.swift */,
 				195DCC901E0EDCF4009B16F1 /* SwipeLeftAC.swift */,
 				19A78BB71E0831E1001131E3 /* SwipeDownAC.swift */,
@@ -149,7 +156,7 @@
 		19D66FA51DF9F480000EC885 /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				199C95B01E1F09C700ED3FF3 /* Achievement+CoreDataProperties.swift */,
+				199F69BD1E2347DD00F79A23 /* Achievement+CoreDataProperties.swift */,
 				1913E9411E0349890051FF80 /* Observation+CoreDataProperties.swift */,
 				1913E93B1E030A590051FF80 /* ObservationComments+CoreDataProperties.swift */,
 				192CF3F31DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift */,
@@ -191,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				192CF3FA1DEF972900D5E2D5 /* Helper.swift */,
-				199C95AF1E1F09C700ED3FF3 /* Achievement+CoreDataClass.swift */,
+				199F69BC1E2347DD00F79A23 /* Achievement+CoreDataClass.swift */,
 				1913E9401E0349890051FF80 /* Observation+CoreDataClass.swift */,
 				1913E93A1E030A590051FF80 /* ObservationComments+CoreDataClass.swift */,
 				192CF3F21DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift */,
@@ -207,16 +214,17 @@
 			isa = PBXGroup;
 			children = (
 				19A78BB41E0828C3001131E3 /* Animator */,
+				19E8D1D21DE6A85A00C2258A /* Assets.xcassets */,
 				19D30AF41E0777BE001EEB7F /* Main.storyboard */,
 				19ABAD9A1E084231001DDEE1 /* CustomButton.swift */,
 				19F0900F1E1DD0CB000982DE /* AchievementCell.swift */,
 				19F090111E1DD0E8000982DE /* AchievementPlaceholderCell.swift */,
+				19AB6DE61E28099200F0F146 /* StatisticCell.swift */,
 				1972AEF81E0E41F7001B2A61 /* TipCell.swift */,
 				19E8D1E31DE6B54B00C2258A /* LogCell.swift */,
 				196E187E1E024A9C005C17BF /* ObservationCommentCell.swift */,
 				1906AFBC1DFA145E001356C3 /* InstructionCell.swift */,
 				19DFB0FE1DFE1EF400CC2925 /* ObservationCell.swift */,
-				1906AFBE1DFA1755001356C3 /* InstructionTransition.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -227,13 +235,15 @@
 				196E18941E025CE0005C17BF /* Observations */,
 				19E8D1DD1DE6B4DB00C2258A /* MainVC.swift */,
 				192CF3F81DEF4CB200D5E2D5 /* MainMethods.swift */,
+				19AB6DE41E28092400F0F146 /* StatisticVC.swift */,
+				196953961E255EB300A20D61 /* DayTipVC.swift */,
+				1972AEF61E0E4113001B2A61 /* TipVC.swift */,
 				19F0900D1E1DD015000982DE /* AchievementVC.swift */,
 				19F090131E1DD113000982DE /* NewAchievementVC.swift */,
 				19DF8B051E1BF29E00107EEA /* IntroVC.swift */,
 				19FEF0591E15EACD0030DBD5 /* TutorialVC.swift */,
 				19E8D1DF1DE6B4E800C2258A /* LogVC.swift */,
 				192CF3F61DEF4CA900D5E2D5 /* LogMethods.swift */,
-				1972AEF61E0E4113001B2A61 /* TipVC.swift */,
 				19D66F971DF9ED8D000EC885 /* InstructionsVC.swift */,
 				19D66F991DF9ED96000EC885 /* InstructionMethods.swift */,
 				19D66F9B1DF9EDA4000EC885 /* StructDefaults.swift */,
@@ -245,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				19E8D1C81DE6A85A00C2258A /* AppDelegate.swift */,
-				19E8D1D21DE6A85A00C2258A /* Assets.xcassets */,
 				19E8D1D41DE6A85A00C2258A /* LaunchScreen.storyboard */,
 				19E8D1D71DE6A85A00C2258A /* Info.plist */,
 			);
@@ -329,7 +338,7 @@
 				1913E93E1E030A590051FF80 /* ObservationComments+CoreDataClass.swift in Sources */,
 				19D66FA31DF9F46C000EC885 /* Exercising+CoreDataClass.swift in Sources */,
 				19ABAD9B1E084231001DDEE1 /* CustomButton.swift in Sources */,
-				199C95B21E1F09C700ED3FF3 /* Achievement+CoreDataProperties.swift in Sources */,
+				199F69BF1E2347DD00F79A23 /* Achievement+CoreDataProperties.swift in Sources */,
 				195DCC911E0EDCF4009B16F1 /* SwipeLeftAC.swift in Sources */,
 				19DFB1091DFF010E00CC2925 /* ObservationMethods.swift in Sources */,
 				19DF8B061E1BF29E00107EEA /* IntroVC.swift in Sources */,
@@ -346,8 +355,10 @@
 				1906AFBF1DFA1755001356C3 /* InstructionTransition.swift in Sources */,
 				1913E9431E0349890051FF80 /* Observation+CoreDataProperties.swift in Sources */,
 				196E18811E024AFF005C17BF /* CommentsVC.swift in Sources */,
-				199C95B11E1F09C700ED3FF3 /* Achievement+CoreDataClass.swift in Sources */,
+				199F69BE1E2347DD00F79A23 /* Achievement+CoreDataClass.swift in Sources */,
 				19E8D1D11DE6A85A00C2258A /* Weitful.xcdatamodeld in Sources */,
+				19AB6DE51E28092400F0F146 /* StatisticVC.swift in Sources */,
+				196953971E255EB300A20D61 /* DayTipVC.swift in Sources */,
 				19D66F9C1DF9EDA4000EC885 /* StructDefaults.swift in Sources */,
 				19F090121E1DD0E8000982DE /* AchievementPlaceholderCell.swift in Sources */,
 				19A3F1051DE81D7500BACDDC /* NSDateExtension.swift in Sources */,
@@ -361,6 +372,7 @@
 				192CF3F41DEF42DA00D5E2D5 /* DayLog+CoreDataClass.swift in Sources */,
 				19DFB0FB1DFE1ED300CC2925 /* ObservationVC.swift in Sources */,
 				19DFB0FF1DFE1EF400CC2925 /* ObservationCell.swift in Sources */,
+				19AB6DE71E28099200F0F146 /* StatisticCell.swift in Sources */,
 				19A78BB81E0831E1001131E3 /* SwipeDownAC.swift in Sources */,
 				192CF3F51DEF42DA00D5E2D5 /* DayLog+CoreDataProperties.swift in Sources */,
 				19E8D1DE1DE6B4DB00C2258A /* MainVC.swift in Sources */,

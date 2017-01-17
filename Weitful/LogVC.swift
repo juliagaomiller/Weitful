@@ -20,11 +20,15 @@ class LogVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var dateBackground: UIView!
     @IBOutlet weak var commentPlaceholderLbl: UILabel!
     
+    @IBOutlet weak var exerciseImageView: UIImageView!
+    @IBOutlet weak var eatingImageView: UIImageView!
+    
     @IBOutlet var keypad: Array<UIButton>?
     
     var log: DayLog!
-    
     var weightString = ""
+    let defaultExerciseImage = #imageLiteral(resourceName: "ex2")
+    let defaultEatingImage = #imageLiteral(resourceName: "eat-3")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +49,9 @@ class LogVC: UIViewController, UITextViewDelegate {
         if exerciseLbl.text == "~" {
             log.exercise = 0
             exerciseLbl.text = "0"
+            updateView()
             return
+            
         }
         if sender.accessibilityIdentifier == "-" {
             if log.exercise <= 0 {x = 0}
@@ -65,6 +71,7 @@ class LogVC: UIViewController, UITextViewDelegate {
         if eatingLbl.text == "~" {
             log.eating = 0
             eatingLbl.text = "0"
+            updateView()
             return
         }
         if sender.accessibilityIdentifier == "-" {
@@ -83,6 +90,13 @@ class LogVC: UIViewController, UITextViewDelegate {
     @IBAction func clear(){
         commentTV.text = ""
     }
+    
+    func returnRatingImage(eat: Bool, ratingString: String)->UIImage {
+        let imageString = (eat == true) ? "eat" + ratingString : "ex" + ratingString
+        let image = UIImage(named: imageString)
+        return image!
+    }
+    
     
     @IBAction func done(){
         log.commentary = commentTV.text
@@ -109,6 +123,10 @@ class LogVC: UIViewController, UITextViewDelegate {
         if commentTV.text != "" {
             commentPlaceholderLbl.isHidden = true
         }
+        let ex = log.exercise
+        let eat = log.eating
+        exerciseImageView.image = (ex == Int(noData)) ? defaultExerciseImage : returnRatingImage(eat: false, ratingString: String(ex))
+        eatingImageView.image = (eat == Int(noData)) ? defaultEatingImage : returnRatingImage(eat: true, ratingString: String(eat))
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

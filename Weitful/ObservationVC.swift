@@ -79,7 +79,7 @@ class ObservationVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.rowHeight = 100
+        tableView.estimatedRowHeight = 100
         tableView.allowsMultipleSelectionDuringEditing = false //We need false to allow swipe deleting
     }
 

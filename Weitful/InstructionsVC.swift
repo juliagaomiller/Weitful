@@ -33,7 +33,7 @@ class InstructionsVC: UIViewController {
         checkIfThereAreAnyEdits()
         
         currentState = defaultState
-        changeButtonColors(background: UIColor.black)
+//        changeButtonColors(background: UIColor.black)
         loadInstructionEntitiesFromDB()
     }
     
@@ -55,33 +55,33 @@ class InstructionsVC: UIViewController {
         dismissVC()
     }
     
-    func changeButtonColors(background: UIColor){
-        revertBtn.backgroundColor = background
-        toggleBtn.backgroundColor = background
-        backBtn.backgroundColor = background
-        var textColor: UIColor!
-        if background == UIColor.black {
-            textColor = UIColor.white
-            //header is white and question mark is black
-        } else {
-            textColor = UIColor.black
-            //header is black and question mark is white
-        }
-        revertBtn.setTitleColor(textColor, for: .normal)
-        toggleBtn.setTitleColor(textColor, for: .normal)
-        backBtn.setTitleColor(textColor, for: .normal)
-    }
+//    func changeButtonColors(background: UIColor){
+//        revertBtn.backgroundColor = background
+//        toggleBtn.backgroundColor = background
+//        backBtn.backgroundColor = background
+//        var textColor: UIColor!
+//        if background == UIColor.black {
+//            textColor = UIColor.white
+//            //header is white and question mark is black
+//        } else {
+//            textColor = UIColor.black
+//            //header is black and question mark is white
+//        }
+//        revertBtn.setTitleColor(textColor, for: .normal)
+//        toggleBtn.setTitleColor(textColor, for: .normal)
+//        backBtn.setTitleColor(textColor, for: .normal)
+//    }
     
     @IBAction func toggle(btn: UIButton){
         if btn.currentTitle == "EATING" {
             currentState = .eating
             btn.setTitle("EXERCISING", for: .normal)
-            changeButtonColors(background: UIColor.white)
+//            changeButtonColors(background: UIColor.white)
             tableView.reloadData()
         } else {
             currentState = .exercising
             btn.setTitle("EATING", for: .normal)
-            changeButtonColors(background: UIColor.black)
+//            changeButtonColors(background: UIColor.black)
             tableView.reloadData()
         }
     }
@@ -113,10 +113,10 @@ extension InstructionsVC: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         if currentState == .exercising {
             cell.configureCell(exercising: exerciseArray[i])
-            self.view.backgroundColor = UIColor.white
+//            self.view.backgroundColor = UIColor.white
         } else {
             cell.configureCell(eating: eatingArray[i])
-            self.view.backgroundColor = UIColor.black
+//            self.view.backgroundColor = UIColor.black
         }
         return cell
     }

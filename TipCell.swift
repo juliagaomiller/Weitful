@@ -10,11 +10,14 @@ import UIKit
 
 class TipCell: UITableViewCell {
     
-    @IBOutlet weak var tipLbl: UILabel!
+    @IBOutlet weak var tipTextView: UITextView!
+    @IBOutlet weak var tipImageView: UIImageView!
     
-    func configureCell(num: Int, text: String){
+    
+    func configureCell(num: Int, image: UIImage, text: String){
         let beginning = "Day \(String(num))\n "
-        tipLbl.text = beginning + text
+        tipTextView.text = beginning + text
+        tipImageView.image = image
     }
     
 }

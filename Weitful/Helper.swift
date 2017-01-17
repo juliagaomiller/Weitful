@@ -27,6 +27,8 @@ struct segueID {
     static let introVC = "IntroVC"
     static let achievementVC = "AchievementVC"
     static let newAchievementVC = "NewAchievementVC"
+    static let dayTipVC = "DayTipVC"
+    static let statisticVC = "StatisticVC"
     
 }
 
